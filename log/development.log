@@ -4529,3 +4529,63 @@ Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-06 17:39:56 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-06 17:39:56 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-06 17:40:52 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/laura/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.7ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-06 17:41:20 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 64ms (Views: 46.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-06 17:41:21 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2013-09-06 17:41:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-06 17:41:21 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-06 17:41:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-06 17:41:21 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2013-09-06 17:41:21 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-06 17:41:21 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-06 17:41:22 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-06 17:41:22 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2013-09-06 17:41:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-06 17:41:22 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-06 17:41:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-06 17:41:22 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2013-09-06 17:41:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-06 17:41:22 -0500
