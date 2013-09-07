@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 gem 'pg'
+gem 'less-rails-bootstrap'
+gem 'therubyracer' #LESS needs this
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
