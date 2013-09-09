@@ -22,3 +22,9 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+#Apparently heroku's asset plugins aren't working with Rails 4
+#Source: http://stackoverflow.com/questions/15354539/heroku-does-not-compile-files-under-assets-piplines-in-rails-4
+group :production do
+  gem 'rails_12factor'
+end
