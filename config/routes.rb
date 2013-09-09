@@ -2,6 +2,7 @@ Additiveanalytics::Application.routes.draw do
   get "/" => "static_pages#home"
   get "/about" => "static_pages#about"
   get "/contact" => "static_pages#contact"
+  get "/privacy_policy" => "static_pages#privacy_policy"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
