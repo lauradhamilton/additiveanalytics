@@ -2,3 +2,22 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 22px;
+  font-weight: 200;
+}
+
+.jumbotron {
+  background-color: #FFFFFF;
+  font-size: 32px;
+}
+
+.lead {
+  font-size: 22px;
+}
