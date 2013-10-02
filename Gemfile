@@ -35,3 +35,6 @@ gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 
 # Fonts
 gem "font-awesome-rails"
+
+# Serve up blog from EC2 server
+gem "rack-reverse-proxy", :require => "rack/reverse_proxy"
