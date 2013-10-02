@@ -4,7 +4,7 @@ require ::File.expand_path('../config/environment',  __FILE__)
 
 use Rack::ReverseProxy do
   reverse_proxy(/^\/blog(\/.*)$/,
-    'http://blog.additiveanalytics.com$1',
+    'http://blog.additiveanalytics.com/blog/$1',
     opts = {:preserve_host => true})
 end
 
