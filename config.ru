@@ -4,13 +4,13 @@ require ::File.expand_path('../config/environment',  __FILE__)
 
 use Rack::ReverseProxy do
   reverse_proxy(/^\/blog(\/.*)$/,
-    'http://ec2-107-22-0-151.compute-1.amazonaws.com/blog$1',
+    'http://54.221.218.10/blog$1',
     opts = {:preserve_host => true})
 end
 
 use Rack::ReverseProxy do
   reverse_proxy('/blog',
-    'http://ec2-107-22-0-151.compute-1.amazonaws.com/blog',
+    'http://54.221.218.10/blog',
     opts = {:preserve_host => true})
 end
 
