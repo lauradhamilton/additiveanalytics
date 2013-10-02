@@ -4,6 +4,7 @@ Additiveanalytics::Application.routes.draw do
   get "/contact" => "static_pages#contact"
   get "/privacy_policy" => "static_pages#privacy_policy"
   get "/terms" => "static_pages#terms"
+  get "/blog" => redirect("/blog/")
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
