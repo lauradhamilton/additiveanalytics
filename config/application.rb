@@ -19,5 +19,12 @@ module Additiveanalytics
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    require 'rack/reverse_proxy'
+
+    config.middleware.use Rack::ReverseProxy do
+      reverse_proxy_options :preserve_host => true
+      reverse_proxy /^\/blog(\/.*)$/, 'http://blog.additiveanalytics.com/blog$1'
+    end
   end
 end

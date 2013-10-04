@@ -20,7 +20,7 @@ gem 'turbolinks'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+  gem 'sdoc', :require =>  false
 end
 
 # Apparently heroku's asset plugins aren't working with Rails 4
@@ -29,12 +29,18 @@ group :production do
   gem 'rails_12factor'
 end
 
-# Heroku gems
-gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
-gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
-
 # Fonts
 gem "font-awesome-rails"
 
 # Serve up blog from EC2 server
-gem "rack-reverse-proxy", :require => "rack/reverse_proxy"
+# The original gem by jaswope is no longer being maintained
+# So I am using this fork
+gem "rack-reverse-proxy", :git => 'https://github.com/sportngin/rack-reverse-proxy.git', :require => "rack/reverse_proxy"
+gem "rack-proxy", :git => 'https://github.com/tstmedia/rack-proxy.git'
+
+# Want to be able to deploy easily to EC2
+gem 'capistrano'
+gem 'capistrano-ext'
+
+# Use passenger / apache as the web server
+gem 'passenger'
