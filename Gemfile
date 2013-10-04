@@ -42,5 +42,6 @@ gem "rack-proxy", :git => 'https://github.com/tstmedia/rack-proxy.git'
 gem 'capistrano'
 gem 'capistrano-ext'
 
-# Use passenger / apache as the web server
+# Use passenger / nginx as the web server
 gem 'passenger'
+gem 'nginx'

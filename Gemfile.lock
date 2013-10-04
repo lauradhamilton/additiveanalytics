@@ -91,6 +91,7 @@ GEM
     net-ssh (2.7.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    nginx (0.0.2)
     passenger (4.0.19)
       daemon_controller (>= 1.1.0)
       rack
@@ -161,6 +162,7 @@ DEPENDENCIES
   font-awesome-rails
   jquery-rails
   less-rails-bootstrap
+  nginx
   passenger
   pg
   rack-proxy!
