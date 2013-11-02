@@ -1,5 +1,6 @@
 Additiveanalytics::Application.routes.draw do
   get "/" => "static_pages#home"
+  get "/product" => "static_pages#product"
   get "/about" => "static_pages#about"
   get "/contact" => "static_pages#contact"
   get "/privacy_policy" => "static_pages#privacy_policy"
