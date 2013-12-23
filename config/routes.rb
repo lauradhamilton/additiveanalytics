@@ -1,10 +1,19 @@
 Additiveanalytics::Application.routes.draw do
+
+  # Static pages
   get "/" => "static_pages#home"
-  get "/product" => "static_pages#product"
   get "/about" => "static_pages#about"
   get "/contact" => "static_pages#contact"
   get "/privacy_policy" => "static_pages#privacy_policy"
   get "/terms" => "static_pages#terms"
+
+  # /solutions folder
+  get "/solutions" => "solutions#list"
+  get "/solutions/custom_analytics" => "solutions#custom_analytics"
+  get "/solutions/hospital_compare" => "solutions#hospital_compare"
+  get "/solutions/maternity" => "solutions#maternity"
+
+  # Blog (goes to wordpress blog on other server)
   get "/blog" => redirect("/blog/")
 
   # The priority is based upon order of creation: first created -> highest priority.
