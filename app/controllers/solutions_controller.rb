@@ -11,6 +11,7 @@ class SolutionsController < ApplicationController
   def maternity
     respond_to do |format|
       format.html
+      format.json { render json: MaternityDatatable.new(view_context) }
     end
   end
 end
