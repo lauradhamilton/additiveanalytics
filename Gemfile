@@ -15,6 +15,11 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Use datatables to dynamically filter data
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+# jquery-datatables-rails depends on sass-rails
+gem 'sass-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

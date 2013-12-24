@@ -9,5 +9,8 @@ class SolutionsController < ApplicationController
   end
 
   def maternity
+    respond_to do |format|
+      format.html
+    end
   end
 end
