@@ -14,4 +14,11 @@ class SolutionsController < ApplicationController
       format.json { render json: MaternityDatatable.new(view_context) }
     end
   end
+
+  def readmissions
+    respond_to do |format|
+      format.html
+      format.json { render json: ReadmissionsDatatable.new(view_context) }
+    end
+  end
 end
