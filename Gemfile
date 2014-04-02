@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
-ruby "2.0.0"
+ruby "2.1.0"
 
-gem 'rails', '4.0.0'
+gem 'rails', '~> 4.0.3'
 gem 'pg'
 gem 'less-rails-bootstrap'
 gem 'therubyracer' #LESS needs this
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
