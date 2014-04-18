@@ -42,6 +42,28 @@ class AllscriptsIntegration
     return response.body
   end
 
+  # Pulls up provider details
+  def self.get_provider(provider_id)
+    uri = URI.parse(@@unity_service_url + "/MagicJson")
+    http = Net::HTTP.new(uri.host,uri.port)
+    request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
+    request.body = {'Action' => 'GetProvider',
+      'Appname' => @@appname,
+      'AppUserID' => @@username,
+      'PatientID' => '',
+      'Token' => AllscriptsIntegration.get_security_token,
+      'Parameter1' => provider_id,
+      'Parameter2' => '',
+      'Parameter3' => '',
+      'Parameter4' => '',
+      'Parameter5' => '',
+      'Parameter6' => '',
+      'Data' => ''}.to_json
+    puts request.body
+    response = http.request(request)
+    return response.body
+  end
+
   # Cannot figure out why this isn't working
   # Emailed Allscripts to find out
   def self.search_patients
@@ -95,7 +117,7 @@ class AllscriptsIntegration
       'AppUserID' => @@username,
       'PatientID' => patient_id,
       'Token' => AllscriptsIntegration.get_security_token,
-      'Parameter1' => 'immunizations',
+      'Parameter1' => 'Immunizations',
       'Parameter2' => '',
       'Parameter3' => '',
       'Parameter4' => '',
