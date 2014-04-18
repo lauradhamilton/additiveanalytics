@@ -5,10 +5,10 @@ require 'net/https'
 require 'rails'
 
 class AllscriptsIntegration
-  @@username = 'AdditiveAnalytics'
-  @@password = 'AdditiveAnalytics123!!'
-  @@unity_service_url = "http://aws-pehr-13.unitysandbox.com/Unity/UnityService.svc/json"
-  @@appname = 'AdditiveAnalytics.TestApp'
+  @@username = ALLSCRIPTS_CONFIG['username']
+  @@password = ALLSCRIPTS_CONFIG['password']
+  @@unity_service_url = ALLSCRIPTS_CONFIG['unity_service_url']
+  @@appname = ALLSCRIPTS_CONFIG['appname']
 
   def self.get_security_token
     credentials_to_send = {'Username' => @@username,
