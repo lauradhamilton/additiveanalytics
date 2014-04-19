@@ -27,7 +27,7 @@ class AllscriptsIntegration
     request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
     request.body = {'Action' => 'GetServerInfo',
       'Appname' => @@appname,
-      'AppUserID' => @@username,
+      'AppUserID' => '',
       'PatientID' => '',
       'Token' => AllscriptsIntegration.get_security_token,
       'Parameter1' => '',
@@ -49,7 +49,7 @@ class AllscriptsIntegration
     request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
     request.body = {'Action' => 'GetProvider',
       'Appname' => @@appname,
-      'AppUserID' => @@username,
+      'AppUserID' => '',
       'PatientID' => '',
       'Token' => AllscriptsIntegration.get_security_token,
       'Parameter1' => provider_id,
@@ -64,18 +64,16 @@ class AllscriptsIntegration
     return response.body
   end
 
-  # Cannot figure out why this isn't working
-  # Emailed Allscripts to find out
-  def self.search_patients
+  def self.search_patients(user_id,search_term)
     uri = URI.parse(@@unity_service_url + "/MagicJson")
     http = Net::HTTP.new(uri.host,uri.port)
     request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
     request.body = {'Action' => 'SearchPatients',
+      'AppUserID' => user_id,
       'Appname' => @@appname,
-      'AppUserID' => @@username,
       'PatientID' => '',
       'Token' => AllscriptsIntegration.get_security_token,
-      'Parameter1' => 'Allscripts,Allison',
+      'Parameter1' => search_term,
       'Parameter2' => '',
       'Parameter3' => '',
       'Parameter4' => '',
@@ -93,7 +91,7 @@ class AllscriptsIntegration
     request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
     request.body = {'Action' => 'GetChangedPatients',
       'Appname' => @@appname,
-      'AppUserID' => @@username,
+      'AppUserID' => '',
       'PatientID' => '',
       'Token' => AllscriptsIntegration.get_security_token,
       'Parameter1' => '1986-01-01',
@@ -108,13 +106,13 @@ class AllscriptsIntegration
     return response.body
   end
 
-  def self.get_clinical_summary(patient_id)
+  def self.get_immunizations(user_id, patient_id)
     uri = URI.parse(@@unity_service_url + "/MagicJson")
     http = Net::HTTP.new(uri.host,uri.port)
     request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
     request.body = {'Action' => 'GetClinicalSummary',
       'Appname' => @@appname,
-      'AppUserID' => @@username,
+      'AppUserID' => user_id,
       'PatientID' => patient_id,
       'Token' => AllscriptsIntegration.get_security_token,
       'Parameter1' => 'Immunizations',
@@ -137,7 +135,7 @@ class AllscriptsIntegration
     request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
     request.body = {'Action' => 'GetPatient',
       'Appname' => @@appname,
-      'AppUserID' => @@username,
+      'AppUserID' => '',
       'PatientID' => patient_id,
       'Token' => AllscriptsIntegration.get_security_token,
       'Parameter1' => 'immunizations',
