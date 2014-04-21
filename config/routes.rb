@@ -14,6 +14,7 @@ Additiveanalytics::Application.routes.draw do
   get "/solutions/maternity" => "solutions#maternity"
   get "/solutions/readmissions" => "solutions#readmissions"
   get "/solutions/flu_tracker" => "solutions#flu_tracker"
+  get "/solutions/flu_tracker_data" => "solutions#flu_tracker_data"
 
   # Blog (goes to wordpress blog on other server)
   get "/blog" => redirect("/blog/")

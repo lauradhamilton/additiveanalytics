@@ -24,4 +24,10 @@ class SolutionsController < ApplicationController
 
   def flu_tracker
   end
+
+  def flu_tracker_data
+    respond_to do |format|
+      format.any {render :json => Influenza.convert_influenza_data_to_json.html_safe}
+    end
+  end
 end

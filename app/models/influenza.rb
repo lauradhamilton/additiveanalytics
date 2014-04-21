@@ -37,6 +37,10 @@ class Influenza < ActiveRecord::Base
     end
   end
 
+  def self.convert_influenza_data_to_json
+    Influenza.where(:view_date => 1.year.ago..Date.today).select([:view_date, :daily_views]).to_json
+  end
+
 end
 
 
