@@ -10,10 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require d3
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require jquery.dataTables.columnFilter
+//= require d3
 //= require maternity
 //= require twitter/bootstrap
 //= require turbolinks

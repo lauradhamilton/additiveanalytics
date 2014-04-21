@@ -20,6 +20,9 @@ gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 # jquery-datatables-rails depends on sass-rails
 gem 'sass-rails'
 
+# Use D3 for data visualizations
+gem 'd3_rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
