@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  view_date: 2014-04-21
+  title: MyString
+  daily_views: 1
+
+two:
+  view_date: 2014-04-21
+  title: MyString
+  daily_views: 1

@@ -21,4 +21,7 @@ class SolutionsController < ApplicationController
       format.json { render json: ReadmissionsDatatable.new(view_context) }
     end
   end
+
+  def flu_tracker
+  end
 end
