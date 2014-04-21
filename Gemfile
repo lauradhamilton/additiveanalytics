@@ -28,12 +28,6 @@ group :doc do
   gem 'sdoc', :require =>  false
 end
 
-# Apparently heroku's asset plugins aren't working with Rails 4
-# Source: http://stackoverflow.com/questions/15354539/heroku-does-not-compile-files-under-assets-piplines-in-rails-4
-group :production do
-  gem 'rails_12factor'
-end
-
 # Fonts
 gem "font-awesome-rails"
 
