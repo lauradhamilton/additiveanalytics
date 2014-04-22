@@ -85,13 +85,13 @@
             .call(xAxis);
 
           svg.append("g")
-            .attr("class", "y axis")
-            .call(yAxis)
+              .attr("class", "y axis")
+              .call(yAxis)
             .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", function(d, daily_views) {return daily_views;})
-            .style("text-anchor", "end")
-            .text("Influenza Page Visits on Wikipedia");
+              .attr("transform", "rotate(-90)")
+              .attr("y", function(d, daily_views) {return daily_views;})
+              .attr("dy", ".71em")
+              .style("text-anchor", "end")
 
          svg.append("path")
            .datum(data)
