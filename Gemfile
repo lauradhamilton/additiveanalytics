@@ -47,3 +47,7 @@ gem 'capistrano-ext'
 # Use passenger / nginx as the web server
 gem 'passenger'
 gem 'nginx'
+
+# Schedule tasks with whenever
+gem 'whenever', :require => false
+
