@@ -49,7 +49,7 @@ class Influenza < ActiveRecord::Base
     # Need to adjust for day of week to make the data smoother
     # Hardcoding the multipliers for now. Should probably be dynamic.
     weekday_multiplier_hash = {0 => 1.2676347595979661, 1 => 0.88774138257244348008, 2 => 0.86095675447288909424, 3 => 0.87132171349961786127, 4 => 0.89443209542822893529, 5 => 1.0458202024580044, 6 => 1.4160395293124987}
-    influenza_hash = Influenza.where(:view_date => 1.year.ago..Date.today).select([:id, :view_date, :daily_views]).order('view_date ASC')
+    influenza_hash = Influenza.where(:view_date => 3.years.ago..Date.today).select([:id, :view_date, :daily_views]).order('view_date ASC')
     influenza_hash.each do |i|
       i[:daily_views] = i[:daily_views] * weekday_multiplier_hash[i[:view_date].wday]
     end
