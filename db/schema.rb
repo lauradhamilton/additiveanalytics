@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20140421185518) do
   enable_extension "plpgsql"
 
   create_table "influenzas", force: true do |t|
-    t.date     "view_date"
-    t.string   "title"
-    t.integer  "daily_views"
+    t.date     "view_date",   null: false
+    t.string   "title",       null: false
+    t.integer  "daily_views", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
