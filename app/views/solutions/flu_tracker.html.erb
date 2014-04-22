@@ -61,6 +61,7 @@
 	    .orient("left");
 
 	var line = d3.svg.line()
+            .interpolate("basis")
 	    .x(function(d) { return x(d.view_date); })
 	    .y(function(d) { return y(d.daily_views); });
 
