@@ -17,12 +17,19 @@ class Influenza < ActiveRecord::Base
 
     # Extract the date and number of page views from json
     page_view_hash.each do |date|
+      next if date[0].nil?
+      next if date[1].nil?
+      next if date[1] == 0 # Ignore dates with no page views -- bad data
       new_influenza = Influenza.new
       new_influenza.title = 'Influenza'
       new_influenza.view_date = date[0]
       new_influenza.daily_views = date[1]
-      new_influenza.save
+      begin
+        new_influenza.save
+      rescue => e
+      end
     end
+
   end
 
   def self.import_wikipedia_data_all_months
