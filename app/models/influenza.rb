@@ -44,6 +44,17 @@ class Influenza < ActiveRecord::Base
     end
   end
 
+  def self.import_latest_wikipedia_data
+    start_date = 1.month.ago
+    number_of_months = 2
+    months = number_of_months.times.each_with_object([]) do |count, array|
+      array << [(start_date.beginning_of_month + count.months).strftime("%Y%m")]
+    end
+    months.each do |month|
+      import_wikipedia_data(month[0])
+    end
+  end
+
   def self.convert_influenza_data_to_json
     # Some days of the week are slower than others
     # Need to adjust for day of week to make the data smoother
