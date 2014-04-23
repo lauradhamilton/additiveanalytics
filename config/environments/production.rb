@@ -77,4 +77,7 @@ Additiveanalytics::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  ALLSCRIPTS_CONFIG = YAML.load_file("#{RAils.root}/config/allscripts.yml")[Rails.env] rescue {}
+
 end
