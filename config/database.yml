@@ -26,5 +26,6 @@ production:
   adapter: postgresql
   username: rails_app
   database: aa_production
+  password: MX3l8R3nQLBIxox6Lzxe28x7mbt1TR
   pool: 5
   timeout: 5000
