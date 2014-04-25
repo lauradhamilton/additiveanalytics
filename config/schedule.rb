@@ -21,9 +21,7 @@
 
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 set :path, Rails.root
-set :environment, :development
 set :output, Rails.root.join('log', 'cron.log')
-require 'rails/all'
 
 every 1.day do
   runner Influenza.import_latest_wikipedia_data
