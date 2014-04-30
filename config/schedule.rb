@@ -24,5 +24,5 @@ set :path, Rails.root
 set :output, Rails.root.join('log', 'cron.log')
 
 every 1.day do
-  runner Influenza.import_latest_wikipedia_data
+  runner "Influenza.import_latest_wikipedia_data"
 end

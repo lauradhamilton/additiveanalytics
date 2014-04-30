@@ -52,10 +52,6 @@ class Influenza < ActiveRecord::Base
     end
     months.each do |month|
       import_wikipedia_data(month[0])
-    if Rails.env.development?
-      print months
-    end
-    return nil # This is to make wheneverize work
     end
   end
 
