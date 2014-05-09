@@ -30,4 +30,7 @@ class SolutionsController < ApplicationController
       format.any {render :json => Influenza.convert_influenza_data_to_json.html_safe}
     end
   end
+
+  def treatment_tracker
+  end
 end
