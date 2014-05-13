@@ -1,0 +1,63 @@
+hepatitis_b:
+  infant_doses:
+    - 0 #Baby age, in months, when each dose is needed
+    - 1
+    - 6
+rotavirus:
+  rotarix:
+    infant_doses:
+      - 2
+      - 4
+  rotateq:
+    infant_doses:
+      - 2
+      - 4
+      - 6
+diptheria_tetanus_pertussis:
+  infant_doses:
+    - 2
+    - 4
+    - 6
+    - 15
+haemophilus_influenza:
+  infant_doses:
+    - 2
+    - 4
+    - 6
+    - 12
+pneumococcal_conjugate:
+  infant_doses:
+    - 2
+    - 4
+    - 6
+    - 12
+pneumococcal_polysaccharide:
+poliovirus:
+  infant_doses:
+    - 2
+    - 4
+    - 6
+influenza:
+  frequency: 'annual'
+measles_mumps_rubella:
+  infant_doses:
+    - 12
+  child_doses:
+    - 4 # in years
+varicella:
+  infant_doses:
+    - 12
+  child_doses:
+    - 4
+hepatitis_a:
+  infant_doses:
+    - 12
+    - 18
+human_papillomavirus:
+  child_doses:
+    - 11
+meningococcal:
+  child_doses:
+    - 11
+    - 16
+
