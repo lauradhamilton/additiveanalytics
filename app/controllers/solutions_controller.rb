@@ -33,4 +33,7 @@ class SolutionsController < ApplicationController
 
   def treatment_tracker
   end
+
+  def reduce_readmissions
+  end
 end
