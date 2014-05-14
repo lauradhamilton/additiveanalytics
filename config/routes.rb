@@ -1,5 +1,7 @@
 Additiveanalytics::Application.routes.draw do
 
+  resources :states
+
   resources :providers
 
   # Static pages

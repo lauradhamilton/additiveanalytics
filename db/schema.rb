@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421185518) do
+ActiveRecord::Schema.define(version: 20140514194328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,5 +25,37 @@ ActiveRecord::Schema.define(version: 20140421185518) do
   end
 
   add_index "influenzas", ["view_date", "title"], name: "index_influenzas_on_view_date_and_title", unique: true, using: :btree
+
+  create_table "providers", force: true do |t|
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "suffix_name"
+    t.string   "prefix_name"
+    t.string   "title_name"
+    t.integer  "entry_code"
+    t.string   "entry_pneumonic"
+    t.string   "provider_key_ext"
+    t.integer  "npi"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "phone"
+    t.integer  "fax"
+    t.string   "specialty"
+    t.boolean  "provider_is_inactive"
+    t.date     "expiration_date"
+    t.integer  "dea_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", force: true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
