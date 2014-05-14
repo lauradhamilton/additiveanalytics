@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20140514202833) do
   create_table "unity_servers", force: true do |t|
     t.string   "server_time_zone"
     t.datetime "server_time"
-    t.datetime "server_date_time_offset"
+    t.string   "server_date_time_offset"
     t.string   "system"
     t.string   "product_version"
     t.date     "uai_born_on_date"
