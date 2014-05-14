@@ -6,6 +6,10 @@ class CreateStates < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :states, :code, :unique => true
+    add_index :states, :name, :unique => true
+
     State.create :code => 'AL', :name => 'Alabama'
     State.create :code => 'AK', :name => 'Alaska'
     State.create :code => 'AZ', :name => 'Arizona'

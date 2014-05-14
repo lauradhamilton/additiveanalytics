@@ -4,4 +4,8 @@ class ValidateUniquenessOfPageViewData < ActiveRecord::Migration
     # Only once per date
     add_index :influenzas, [:view_date, :title], :unique => true
   end
+
+  def self.down
+    remove_index 'index_influenzas_on_view_date_and_title'
+  end
 end
