@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Server time zone:</strong>
+  <%= @unity_server.server_time_zone %>
+</p>
+
+<p>
+  <strong>Server time:</strong>
+  <%= @unity_server.server_time %>
+</p>
+
+<p>
+  <strong>Server date time offset:</strong>
+  <%= @unity_server.server_date_time_offset %>
+</p>
+
+<p>
+  <strong>System:</strong>
+  <%= @unity_server.system %>
+</p>
+
+<p>
+  <strong>Product version:</strong>
+  <%= @unity_server.product_version %>
+</p>
+
+<p>
+  <strong>Uai born on date:</strong>
+  <%= @unity_server.uai_born_on_date %>
+</p>
+
+<%= link_to 'Edit', edit_unity_server_path(@unity_server) %> |
+<%= link_to 'Back', unity_servers_path %>

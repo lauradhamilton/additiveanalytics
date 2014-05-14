@@ -1,0 +1,37 @@
+<h1>Listing unity_servers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Server time zone</th>
+      <th>Server time</th>
+      <th>Server date time offset</th>
+      <th>System</th>
+      <th>Product version</th>
+      <th>Uai born on date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unity_servers.each do |unity_server| %>
+      <tr>
+        <td><%= unity_server.server_time_zone %></td>
+        <td><%= unity_server.server_time %></td>
+        <td><%= unity_server.server_date_time_offset %></td>
+        <td><%= unity_server.system %></td>
+        <td><%= unity_server.product_version %></td>
+        <td><%= unity_server.uai_born_on_date %></td>
+        <td><%= link_to 'Show', unity_server %></td>
+        <td><%= link_to 'Edit', edit_unity_server_path(unity_server) %></td>
+        <td><%= link_to 'Destroy', unity_server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unity server', new_unity_server_path %>

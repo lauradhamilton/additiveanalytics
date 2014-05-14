@@ -1,5 +1,7 @@
 Additiveanalytics::Application.routes.draw do
 
+  resources :unity_servers
+
   resources :states
 
   resources :providers

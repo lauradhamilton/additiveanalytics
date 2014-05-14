@@ -1,0 +1,41 @@
+<%= form_for(@unity_server) do |f| %>
+  <% if @unity_server.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@unity_server.errors.count, "error") %> prohibited this unity_server from being saved:</h2>
+
+      <ul>
+      <% @unity_server.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :server_time_zone %><br>
+    <%= f.text_field :server_time_zone %>
+  </div>
+  <div class="field">
+    <%= f.label :server_time %><br>
+    <%= f.datetime_select :server_time %>
+  </div>
+  <div class="field">
+    <%= f.label :server_date_time_offset %><br>
+    <%= f.datetime_select :server_date_time_offset %>
+  </div>
+  <div class="field">
+    <%= f.label :system %><br>
+    <%= f.text_field :system %>
+  </div>
+  <div class="field">
+    <%= f.label :product_version %><br>
+    <%= f.text_field :product_version %>
+  </div>
+  <div class="field">
+    <%= f.label :uai_born_on_date %><br>
+    <%= f.date_select :uai_born_on_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

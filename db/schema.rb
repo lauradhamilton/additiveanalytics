@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514201220) do
+ActiveRecord::Schema.define(version: 20140514202833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,5 +60,16 @@ ActiveRecord::Schema.define(version: 20140514201220) do
 
   add_index "states", ["code"], name: "index_states_on_code", unique: true, using: :btree
   add_index "states", ["name"], name: "index_states_on_name", unique: true, using: :btree
+
+  create_table "unity_servers", force: true do |t|
+    t.string   "server_time_zone"
+    t.datetime "server_time"
+    t.datetime "server_date_time_offset"
+    t.string   "system"
+    t.string   "product_version"
+    t.date     "uai_born_on_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
