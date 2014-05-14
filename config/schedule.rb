@@ -23,6 +23,12 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 set :path, Rails.root
 set :output, Rails.root.join('log', 'cron.log')
 
+# Import new Wikipedia data for the influenza tracker every day
 every 1.day do
   runner "Influenza.import_latest_wikipedia_data"
+end
+
+# Run a script to import Unity server data every day
+every 1.day do
+  runner "UnityServer.import_server_info"
 end
