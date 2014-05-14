@@ -1,0 +1,97 @@
+<%= form_for(@provider) do |f| %>
+  <% if @provider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+
+      <ul>
+      <% @provider.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :middle_name %><br>
+    <%= f.text_field :middle_name %>
+  </div>
+  <div class="field">
+    <%= f.label :suffix_name %><br>
+    <%= f.text_field :suffix_name %>
+  </div>
+  <div class="field">
+    <%= f.label :prefix_name %><br>
+    <%= f.text_field :prefix_name %>
+  </div>
+  <div class="field">
+    <%= f.label :title_name %><br>
+    <%= f.text_field :title_name %>
+  </div>
+  <div class="field">
+    <%= f.label :entry_code %><br>
+    <%= f.number_field :entry_code %>
+  </div>
+  <div class="field">
+    <%= f.label :entry_pneumonic %><br>
+    <%= f.text_field :entry_pneumonic %>
+  </div>
+  <div class="field">
+    <%= f.label :provider_key_ext %><br>
+    <%= f.text_field :provider_key_ext %>
+  </div>
+  <div class="field">
+    <%= f.label :npi %><br>
+    <%= f.number_field :npi %>
+  </div>
+  <div class="field">
+    <%= f.label :address_line_1 %><br>
+    <%= f.text_field :address_line_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address_line_2 %><br>
+    <%= f.text_field :address_line_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.number_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :fax %><br>
+    <%= f.number_field :fax %>
+  </div>
+  <div class="field">
+    <%= f.label :specialty %><br>
+    <%= f.text_field :specialty %>
+  </div>
+  <div class="field">
+    <%= f.label :provider_is_inactive %><br>
+    <%= f.check_box :provider_is_inactive %>
+  </div>
+  <div class="field">
+    <%= f.label :expiration_date %><br>
+    <%= f.date_select :expiration_date %>
+  </div>
+  <div class="field">
+    <%= f.label :dea_number %><br>
+    <%= f.number_field :dea_number %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

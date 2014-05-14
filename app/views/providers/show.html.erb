@@ -1,0 +1,104 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @provider.last_name %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @provider.first_name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @provider.middle_name %>
+</p>
+
+<p>
+  <strong>Suffix name:</strong>
+  <%= @provider.suffix_name %>
+</p>
+
+<p>
+  <strong>Prefix name:</strong>
+  <%= @provider.prefix_name %>
+</p>
+
+<p>
+  <strong>Title name:</strong>
+  <%= @provider.title_name %>
+</p>
+
+<p>
+  <strong>Entry code:</strong>
+  <%= @provider.entry_code %>
+</p>
+
+<p>
+  <strong>Entry pneumonic:</strong>
+  <%= @provider.entry_pneumonic %>
+</p>
+
+<p>
+  <strong>Provider key ext:</strong>
+  <%= @provider.provider_key_ext %>
+</p>
+
+<p>
+  <strong>Npi:</strong>
+  <%= @provider.npi %>
+</p>
+
+<p>
+  <strong>Address line 1:</strong>
+  <%= @provider.address_line_1 %>
+</p>
+
+<p>
+  <strong>Address line 2:</strong>
+  <%= @provider.address_line_2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @provider.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @provider.state %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @provider.phone %>
+</p>
+
+<p>
+  <strong>Fax:</strong>
+  <%= @provider.fax %>
+</p>
+
+<p>
+  <strong>Specialty:</strong>
+  <%= @provider.specialty %>
+</p>
+
+<p>
+  <strong>Provider is inactive:</strong>
+  <%= @provider.provider_is_inactive %>
+</p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @provider.expiration_date %>
+</p>
+
+<p>
+  <strong>Dea number:</strong>
+  <%= @provider.dea_number %>
+</p>
+
+<%= link_to 'Edit', edit_provider_path(@provider) %> |
+<%= link_to 'Back', providers_path %>

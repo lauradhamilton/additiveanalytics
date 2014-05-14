@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  last_name: MyString
+  first_name: MyString
+  middle_name: MyString
+  suffix_name: MyString
+  prefix_name: MyString
+  title_name: MyString
+  entry_code: 1
+  entry_pneumonic: MyString
+  provider_key_ext: MyString
+  npi: 1
+  address_line_1: MyString
+  address_line_2: MyString
+  city: MyString
+  state: MyString
+  phone: 1
+  fax: 1
+  specialty: MyString
+  provider_is_inactive: false
+  expiration_date: 2014-05-14
+  dea_number: 1
+
+two:
+  last_name: MyString
+  first_name: MyString
+  middle_name: MyString
+  suffix_name: MyString
+  prefix_name: MyString
+  title_name: MyString
+  entry_code: 1
+  entry_pneumonic: MyString
+  provider_key_ext: MyString
+  npi: 1
+  address_line_1: MyString
+  address_line_2: MyString
+  city: MyString
+  state: MyString
+  phone: 1
+  fax: 1
+  specialty: MyString
+  provider_is_inactive: false
+  expiration_date: 2014-05-14
+  dea_number: 1

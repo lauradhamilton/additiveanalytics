@@ -1,0 +1,65 @@
+<h1>Listing providers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Suffix name</th>
+      <th>Prefix name</th>
+      <th>Title name</th>
+      <th>Entry code</th>
+      <th>Entry pneumonic</th>
+      <th>Provider key ext</th>
+      <th>Npi</th>
+      <th>Address line 1</th>
+      <th>Address line 2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Phone</th>
+      <th>Fax</th>
+      <th>Specialty</th>
+      <th>Provider is inactive</th>
+      <th>Expiration date</th>
+      <th>Dea number</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @providers.each do |provider| %>
+      <tr>
+        <td><%= provider.last_name %></td>
+        <td><%= provider.first_name %></td>
+        <td><%= provider.middle_name %></td>
+        <td><%= provider.suffix_name %></td>
+        <td><%= provider.prefix_name %></td>
+        <td><%= provider.title_name %></td>
+        <td><%= provider.entry_code %></td>
+        <td><%= provider.entry_pneumonic %></td>
+        <td><%= provider.provider_key_ext %></td>
+        <td><%= provider.npi %></td>
+        <td><%= provider.address_line_1 %></td>
+        <td><%= provider.address_line_2 %></td>
+        <td><%= provider.city %></td>
+        <td><%= provider.state %></td>
+        <td><%= provider.phone %></td>
+        <td><%= provider.fax %></td>
+        <td><%= provider.specialty %></td>
+        <td><%= provider.provider_is_inactive %></td>
+        <td><%= provider.expiration_date %></td>
+        <td><%= provider.dea_number %></td>
+        <td><%= link_to 'Show', provider %></td>
+        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
+        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Provider', new_provider_path %>
