@@ -1,11 +1,11 @@
 require 'json'
 require 'rails'
 
-class MedicareCostSummaries < ActiveRecord::Base
+class MedicareCostSummary < ActiveRecord::Base
 
-  def self.medicare_cost_summaries_as_json
-    cost_summary = MedicareCostSummary
-  return cost_summary.to_json
+  def self.convert_medicare_cost_summary_to_json
+    cost_summary_hash = MedicareCostSummary.select([:provider_name, :state]).order('state ASC')
+    return cost_summary_hash.to_json
   end
 
 end

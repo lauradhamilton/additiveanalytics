@@ -42,7 +42,7 @@ class SolutionsController < ApplicationController
 
   def compare_prices_data
     respond_to do |format|
-      format.any {render :json => MedicareCostSummary.medicare_cost_summaries_as_Json.html_safe}
+      format.any {render :json => MedicareCostSummary.convert_medicare_cost_summary_to_json.html_safe}
     end
   end
 
