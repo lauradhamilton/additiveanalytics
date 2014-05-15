@@ -1,0 +1,139 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Npi:</strong>
+  <%= @medicare_cost.npi %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @medicare_cost.last_name %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @medicare_cost.first_name %>
+</p>
+
+<p>
+  <strong>Mi:</strong>
+  <%= @medicare_cost.mi %>
+</p>
+
+<p>
+  <strong>Credentials:</strong>
+  <%= @medicare_cost.credentials %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @medicare_cost.gender %>
+</p>
+
+<p>
+  <strong>Entity code:</strong>
+  <%= @medicare_cost.entity_code %>
+</p>
+
+<p>
+  <strong>Address line 1:</strong>
+  <%= @medicare_cost.address_line_1 %>
+</p>
+
+<p>
+  <strong>Address line 2:</strong>
+  <%= @medicare_cost.address_line_2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @medicare_cost.city %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @medicare_cost.zip %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @medicare_cost.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @medicare_cost.country %>
+</p>
+
+<p>
+  <strong>Provider type:</strong>
+  <%= @medicare_cost.provider_type %>
+</p>
+
+<p>
+  <strong>Medicare participation indicator:</strong>
+  <%= @medicare_cost.medicare_participation_indicator %>
+</p>
+
+<p>
+  <strong>Place of service:</strong>
+  <%= @medicare_cost.place_of_service %>
+</p>
+
+<p>
+  <strong>Hcps code:</strong>
+  <%= @medicare_cost.hcps_code %>
+</p>
+
+<p>
+  <strong>Hcpcs description:</strong>
+  <%= @medicare_cost.hcpcs_description %>
+</p>
+
+<p>
+  <strong>Services provided count:</strong>
+  <%= @medicare_cost.services_provided_count %>
+</p>
+
+<p>
+  <strong>Beneficiaries count:</strong>
+  <%= @medicare_cost.beneficiaries_count %>
+</p>
+
+<p>
+  <strong>Distinct services per beneficiary count:</strong>
+  <%= @medicare_cost.distinct_services_per_beneficiary_count %>
+</p>
+
+<p>
+  <strong>Average medicare allowed amount:</strong>
+  <%= @medicare_cost.average_medicare_allowed_amount %>
+</p>
+
+<p>
+  <strong>Stdev medicare allowed amount:</strong>
+  <%= @medicare_cost.stdev_medicare_allowed_amount %>
+</p>
+
+<p>
+  <strong>Average submitted charge amount:</strong>
+  <%= @medicare_cost.average_submitted_charge_amount %>
+</p>
+
+<p>
+  <strong>Stdev submitted charge amount:</strong>
+  <%= @medicare_cost.stdev_submitted_charge_amount %>
+</p>
+
+<p>
+  <strong>Average medicare payment amount:</strong>
+  <%= @medicare_cost.average_medicare_payment_amount %>
+</p>
+
+<p>
+  <strong>Stdev medicare payment amount:</strong>
+  <%= @medicare_cost.stdev_medicare_payment_amount %>
+</p>
+
+<%= link_to 'Edit', edit_medicare_cost_path(@medicare_cost) %> |
+<%= link_to 'Back', medicare_costs_path %>

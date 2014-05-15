@@ -1,0 +1,79 @@
+<h1>Listing medicare_costs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Npi</th>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Mi</th>
+      <th>Credentials</th>
+      <th>Gender</th>
+      <th>Entity code</th>
+      <th>Address line 1</th>
+      <th>Address line 2</th>
+      <th>City</th>
+      <th>Zip</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Provider type</th>
+      <th>Medicare participation indicator</th>
+      <th>Place of service</th>
+      <th>Hcps code</th>
+      <th>Hcpcs description</th>
+      <th>Services provided count</th>
+      <th>Beneficiaries count</th>
+      <th>Distinct services per beneficiary count</th>
+      <th>Average medicare allowed amount</th>
+      <th>Stdev medicare allowed amount</th>
+      <th>Average submitted charge amount</th>
+      <th>Stdev submitted charge amount</th>
+      <th>Average medicare payment amount</th>
+      <th>Stdev medicare payment amount</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medicare_costs.each do |medicare_cost| %>
+      <tr>
+        <td><%= medicare_cost.npi %></td>
+        <td><%= medicare_cost.last_name %></td>
+        <td><%= medicare_cost.first_name %></td>
+        <td><%= medicare_cost.mi %></td>
+        <td><%= medicare_cost.credentials %></td>
+        <td><%= medicare_cost.gender %></td>
+        <td><%= medicare_cost.entity_code %></td>
+        <td><%= medicare_cost.address_line_1 %></td>
+        <td><%= medicare_cost.address_line_2 %></td>
+        <td><%= medicare_cost.city %></td>
+        <td><%= medicare_cost.zip %></td>
+        <td><%= medicare_cost.state %></td>
+        <td><%= medicare_cost.country %></td>
+        <td><%= medicare_cost.provider_type %></td>
+        <td><%= medicare_cost.medicare_participation_indicator %></td>
+        <td><%= medicare_cost.place_of_service %></td>
+        <td><%= medicare_cost.hcps_code %></td>
+        <td><%= medicare_cost.hcpcs_description %></td>
+        <td><%= medicare_cost.services_provided_count %></td>
+        <td><%= medicare_cost.beneficiaries_count %></td>
+        <td><%= medicare_cost.distinct_services_per_beneficiary_count %></td>
+        <td><%= medicare_cost.average_medicare_allowed_amount %></td>
+        <td><%= medicare_cost.stdev_medicare_allowed_amount %></td>
+        <td><%= medicare_cost.average_submitted_charge_amount %></td>
+        <td><%= medicare_cost.stdev_submitted_charge_amount %></td>
+        <td><%= medicare_cost.average_medicare_payment_amount %></td>
+        <td><%= medicare_cost.stdev_medicare_payment_amount %></td>
+        <td><%= link_to 'Show', medicare_cost %></td>
+        <td><%= link_to 'Edit', edit_medicare_cost_path(medicare_cost) %></td>
+        <td><%= link_to 'Destroy', medicare_cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medicare cost', new_medicare_cost_path %>

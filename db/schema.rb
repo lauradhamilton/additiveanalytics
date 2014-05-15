@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421185518) do
+ActiveRecord::Schema.define(version: 20140515194414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,5 +25,91 @@ ActiveRecord::Schema.define(version: 20140421185518) do
   end
 
   add_index "influenzas", ["view_date", "title"], name: "index_influenzas_on_view_date_and_title", unique: true, using: :btree
+
+  create_table "medicare_cost_summaries", force: true do |t|
+    t.string  "provider_name"
+    t.string  "state"
+    t.string  "procedure_type"
+    t.integer "procedures_count"
+    t.decimal "average_cost"
+  end
+
+  create_table "medicare_costs", force: true do |t|
+    t.integer  "npi"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "mi"
+    t.string   "credentials"
+    t.string   "gender"
+    t.string   "entity_code"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "state"
+    t.string   "country"
+    t.string   "provider_type"
+    t.string   "medicare_participation_indicator"
+    t.string   "place_of_service"
+    t.string   "hcpcs_code"
+    t.string   "hcpcs_description"
+    t.float    "services_provided_count"
+    t.integer  "beneficiaries_count"
+    t.integer  "distinct_services_per_beneficiary_count"
+    t.decimal  "average_medicare_allowed_amount",         precision: 8, scale: 2
+    t.decimal  "stdev_medicare_allowed_amount",           precision: 8, scale: 2
+    t.decimal  "average_submitted_charge_amount",         precision: 8, scale: 2
+    t.decimal  "stdev_submitted_charge_amount",           precision: 8, scale: 2
+    t.decimal  "average_medicare_payment_amount",         precision: 8, scale: 2
+    t.decimal  "stdev_medicare_payment_amount",           precision: 8, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "providers", force: true do |t|
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "suffix_name"
+    t.string   "prefix_name"
+    t.string   "title_name"
+    t.integer  "entry_code"
+    t.string   "entry_pneumonic"
+    t.string   "provider_key_ext"
+    t.integer  "npi"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "phone"
+    t.integer  "fax"
+    t.string   "specialty"
+    t.boolean  "provider_is_inactive"
+    t.date     "expiration_date"
+    t.integer  "dea_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", force: true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "states", ["code"], name: "index_states_on_code", unique: true, using: :btree
+  add_index "states", ["name"], name: "index_states_on_name", unique: true, using: :btree
+
+  create_table "unity_servers", force: true do |t|
+    t.string   "server_time_zone"
+    t.datetime "server_time"
+    t.string   "server_date_time_offset"
+    t.string   "system"
+    t.string   "product_version"
+    t.date     "uai_born_on_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

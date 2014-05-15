@@ -1,5 +1,7 @@
 Additiveanalytics::Application.routes.draw do
 
+  resources :medicare_costs
+
   # Static pages
   get "/" => "static_pages#home"
   get "/about" => "static_pages#about"

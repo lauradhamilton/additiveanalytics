@@ -1,0 +1,125 @@
+<%= form_for(@medicare_cost) do |f| %>
+  <% if @medicare_cost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medicare_cost.errors.count, "error") %> prohibited this medicare_cost from being saved:</h2>
+
+      <ul>
+      <% @medicare_cost.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :npi %><br>
+    <%= f.number_field :npi %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :mi %><br>
+    <%= f.text_field :mi %>
+  </div>
+  <div class="field">
+    <%= f.label :credentials %><br>
+    <%= f.text_field :credentials %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :entity_code %><br>
+    <%= f.text_field :entity_code %>
+  </div>
+  <div class="field">
+    <%= f.label :address_line_1 %><br>
+    <%= f.text_field :address_line_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address_line_2 %><br>
+    <%= f.text_field :address_line_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.number_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :provider_type %><br>
+    <%= f.text_field :provider_type %>
+  </div>
+  <div class="field">
+    <%= f.label :medicare_participation_indicator %><br>
+    <%= f.text_field :medicare_participation_indicator %>
+  </div>
+  <div class="field">
+    <%= f.label :place_of_service %><br>
+    <%= f.text_field :place_of_service %>
+  </div>
+  <div class="field">
+    <%= f.label :hcps_code %><br>
+    <%= f.number_field :hcps_code %>
+  </div>
+  <div class="field">
+    <%= f.label :hcpcs_description %><br>
+    <%= f.text_field :hcpcs_description %>
+  </div>
+  <div class="field">
+    <%= f.label :services_provided_count %><br>
+    <%= f.number_field :services_provided_count %>
+  </div>
+  <div class="field">
+    <%= f.label :beneficiaries_count %><br>
+    <%= f.number_field :beneficiaries_count %>
+  </div>
+  <div class="field">
+    <%= f.label :distinct_services_per_beneficiary_count %><br>
+    <%= f.number_field :distinct_services_per_beneficiary_count %>
+  </div>
+  <div class="field">
+    <%= f.label :average_medicare_allowed_amount %><br>
+    <%= f.text_field :average_medicare_allowed_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :stdev_medicare_allowed_amount %><br>
+    <%= f.text_field :stdev_medicare_allowed_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :average_submitted_charge_amount %><br>
+    <%= f.text_field :average_submitted_charge_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :stdev_submitted_charge_amount %><br>
+    <%= f.text_field :stdev_submitted_charge_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :average_medicare_payment_amount %><br>
+    <%= f.text_field :average_medicare_payment_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :stdev_medicare_payment_amount %><br>
+    <%= f.text_field :stdev_medicare_payment_amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
