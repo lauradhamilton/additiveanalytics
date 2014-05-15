@@ -36,4 +36,14 @@ class SolutionsController < ApplicationController
 
   def reduce_readmissions
   end
+
+  def compare_prices
+  end
+
+  def compare_prices_data
+    respond_to do |format|
+      format.any {render :json => MedicareCostSummary.medicare_cost_summaries_as_Json.html_safe}
+    end
+  end
+
 end
