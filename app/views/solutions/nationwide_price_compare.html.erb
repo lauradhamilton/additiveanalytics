@@ -19,7 +19,21 @@
       <script>
         var map = new Datamap({
           element: document.getElementById('container'),
-          scope: 'usa'});
+        scope: 'usa',
+        fills: {
+          HIGH: 'red',
+          LOW: 'green',
+          MEDIUM: 'yellow',
+          UNKNOWN: 'rgb(0,0,0)',
+          defaultFill: 'blue'
+        },
+        data: {
+          "CA": {
+            "fillKey": 'HIGH',
+            "numberOfThings": 2002
+          }
+        }
+      });
       </script>
       
        <br><br>
