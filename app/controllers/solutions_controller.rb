@@ -46,4 +46,13 @@ class SolutionsController < ApplicationController
     end
   end
 
+  def price_variances_by_state
+  end
+
+  def price_variances_by_state_data
+    respond_to do |format|
+      format.any { render json: PriceVariancesByState.convert_price_variance_data_to_json}
+    end
+  end
+
 end
