@@ -21,8 +21,8 @@ Additiveanalytics::Application.routes.draw do
   get "/solutions/reduce_readmissions" => "solutions#reduce_readmissions"
   get "/solutions/compare_prices" => "solutions#compare_prices"
   get "/solutions/compare_prices_data" => "solutions#compare_prices_data"
-  get "/solutions/price_variances_by_state" => "solutions#price_variances_by_state"
-  get "/solutions/price_variances_by_state_data" => "solutions#price_variances_by_state_data"
+  get "/solutions/nationwide_price_compare" => "solutions#nationwide_price_compare"
+  get "/solutions/nationwide_price_compare_data" => "solutions#nationwide_price_compare_data"
 
   # Blog (goes to wordpress blog on other server)
   get "/blog" => redirect("/blog/")
