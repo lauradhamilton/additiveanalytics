@@ -1,54 +1,24 @@
 <!-- Begin page content -->
   <div class="container">
     <div class="page-header">
-      <h1>Compare Prices</h1>
+      <h1>Surgery Prices by State</h1>
     </div>
     <div class="container-marketing">
-      <h3>See what the same surgery costs at different providers</h3>
+      <h3>See how the cost of surgery varies from one state to the next</h3>
       <p>
-      The same surgical procedure can vary widely in cost from one provider to the next. Use the table below to price shop.
+      Some states are more expensive than others.
       </p>
 
-      <p>
-      Also, take a look at how many procedures each provider does in a year. It's often a good idea to choose a provider who performs the procedure often.
-      </p>
       <br>
       <br>
 
-      <table id="compare_prices" class="display" data-source="solutions/compare_prices_data" style="font-size:14px;">
-        <thead>
-          <tr>
-            <th>All States</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-          <tr>
-            <th>State</th>
-            <th>Hospital Name</th>
-            <th>Procedure Type</th>
-            <th>Number of Procedures</th>
-            <th>Average Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          <td class="dataTables_empty">Loading</td>
-          <td class="dataTables_empty">Loading</td>
-          <td class="dataTables_empty">Loading</td>
-          <td class="dataTables_empty">Loading</td>
-          <td class="dataTables_empty">Loading</td>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </tfoot>
-       </table>
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script src="http://d3js.org/topojson.v1.min.js"></script>
+      <script src="/datamaps.world.min.js"></script>
+      <div id="container" style="position: relative; width: 500px; height: 300px;"></div>
+      <script>
+        var map = new Datamap({element: document.getElementById('container')});
+      </script>
       
        <br><br>
        <p>Based on the publicly available data on Medicare payments to physicians and healthcare organizations. You can find the <a href="https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Physician-and-Other-Supplier.html">raw data here.</a></p>
