@@ -19,16 +19,21 @@
       <script>
         var map = new Datamap({
           element: document.getElementById('container'),
-        scope: 'usa',
-        fills: {
-          'Very Low' : 'green',
-          'Low': 'green',
-          'Average': 'yellow',
-          'High': 'red',
-          'Very High': 'red',
-          defaultFill: 'gray'
-        },
-        data: {
+          geographyConfig: {
+            popupTemplate: function(geography, data) {
+              return '<div class="hoverinfo">' + geography.properties.name + 'Surgery prices: ' + data.diffVersusAverage + "%"
+            },
+          },
+          scope: 'usa',
+          fills: {
+            'Very Low' : 'green',
+            'Low': 'green',
+            'Average': 'yellow',
+            'High': 'red',
+            'Very High': 'red',
+            defaultFill: 'gray'
+          },
+          data: {
           "AK":{"fillKey":"Very High","diffVersusAverage":6.3},
 "AL":{"fillKey":"Very Low","diffVersusAverage":-9},
 "AR":{"fillKey":"Very Low","diffVersusAverage":-8.6},
