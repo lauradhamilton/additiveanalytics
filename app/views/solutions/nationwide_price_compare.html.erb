@@ -21,7 +21,7 @@
           element: document.getElementById('container'),
           geographyConfig: {
             popupTemplate: function(geography, data) {
-              return '<div class="hoverinfo">' + geography.properties.name + 'Surgery prices: ' + data.diffVersusAverage + "%"
+              return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong><br>' +'Surgery prices: ' + data.diffVersusAverage + "%"
             },
           },
           scope: 'usa',
