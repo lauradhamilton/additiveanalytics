@@ -1,6 +1,7 @@
 $(document).ready ->
   oTable = $("#compare_prices").dataTable(
     "iDisplayLength": 50
+    "sPaginationType": "full_numbers",
     bProcessing: true
     sAjaxSource: "compare_prices_data"
     "bAutoWidth": false
