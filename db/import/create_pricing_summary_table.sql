@@ -1,11 +1,11 @@
-drop table if exists medicare_cost_summaries;
+﻿drop table if exists medicare_cost_summaries;
 
 create table medicare_cost_summaries (
 id integer PRIMARY KEY
 ,provider_name varchar(255)
 ,state varchar(255)
 ,procedure_type text
-,procedures_count numeric
+,procedures_count integer
 ,average_cost numeric
 );
 
@@ -41,7 +41,9 @@ nextval('medicare_cost_summaries_id_seq') as id
         when 'L8619' then 'Cochlear implant'
         when '29828' then 'Bicep surgery'
         else null end as procedure_type
-,sum(services_provided_count) as procedures_count
+,round(sum(services_provided_count)) as procedures_count
+ --I found two rows with a fractional prodedure count, ending in 0.5
+ --Dunno why but I'm gonna round them away
 ,round(avg(average_medicare_allowed_amount),2) as average_cost
 from medicare_costs
 where entity_code = 'O'
