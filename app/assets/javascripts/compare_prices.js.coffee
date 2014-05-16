@@ -3,6 +3,8 @@ $(document).ready ->
     "iDisplayLength": 50
     bProcessing: true
     sAjaxSource: "compare_prices_data"
+    "bAutoWidth": false
+    "aaSorting": [[1, "asc" ]]
     aoColumns: [
       {
         mDataProp: "state"
