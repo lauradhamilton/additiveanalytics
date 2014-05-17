@@ -32,4 +32,4 @@ state
 from medicare_cost_summaries mcs
 inner join nationwide_cost_averages ncs on ncs.procedure_type = mcs.procedure_type) as t
 group by 2
-order by 2
+order by 2;
