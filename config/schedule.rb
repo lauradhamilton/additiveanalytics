@@ -32,3 +32,8 @@ end
 every 1.day do
   runner "UnityServer.import_server_info"
 end
+
+# Run a script to import the provider data every day
+every 1.day do
+  runner "Provider.import_providers"
+end

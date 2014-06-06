@@ -3,7 +3,7 @@ require 'rails'
 class Provider < ActiveRecord::Base
 
   def self.import_providers
-    (0..100).each do |provider_id|
+    (0..100000).each do |provider_id|
       provider = AllscriptsIntegration.get_provider(provider_id)
       unless JSON[provider][0]["getproviderinfo"].nil?
         new_provider_hash = JSON[provider][0]["getproviderinfo"][0]
