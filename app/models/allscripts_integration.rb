@@ -3,6 +3,7 @@ require 'json'
 require 'net/http'
 require 'net/https'
 require 'rails'
+require 'yaml'
 
 class AllscriptsIntegration
   @@username = ALLSCRIPTS_CONFIG['username']
