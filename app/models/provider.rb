@@ -8,7 +8,6 @@ class Provider < ActiveRecord::Base
       unless JSON[provider][0]["getproviderinfo"].nil?
         new_provider_hash = JSON[provider][0]["getproviderinfo"][0]
         new_provider = Provider.new
-        print new_provider_hash
 
         new_provider.id = provider_id
         new_provider.last_name = new_provider_hash["LastName"]
