@@ -18,6 +18,11 @@ class UnityServer < ActiveRecord::Base
     new_server_info.system = server_info_hash["System"]
     new_server_info.server_time_zone = server_info_hash["ServerTimeZone"]
 
-    new_server_info.save
+    # Method should be safe
+    # Should only save 1 record per day
+    # Save the unity server record unless we've already saved it today
+    unless UnityServer.find_by "created_at > ?", Date.today
+      new_server_info.save
+    end
   end
 end
