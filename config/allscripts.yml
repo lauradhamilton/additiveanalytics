@@ -1,18 +1,18 @@
 development:
   username: 'AdditiveAnalytics'
   password: 'AdditiveAnalytics123!!'
-  unity_service_url: "http://aws-pehr-13.unitysandbox.com/Unity/UnityService.svc/json"
+  unity_service_url: "http://pro13ga.unitysandbox.com/Unity/unityservice.svc/json"
   appname: 'AdditiveAnalytics.TestApp'
 
 test:
   username: 'AdditiveAnalytics'
   password: 'AdditiveAnalytics123!!'
-  unity_service_url: "http://aws-pehr-13.unitysandbox.com/Unity/UnityService.svc/json"
+  unity_service_url: "http://pro13ga.unitysandbox.com/Unity/unityservice.svc/json"
   appname: 'AdditiveAnalytics.TestApp'
 
 production:
   username: 'AdditiveAnalytics'
   password: 'AdditiveAnalytics123!!'
-  unity_service_url: "http://aws-pehr-13.unitysandbox.com/Unity/UnityService.svc/json"
+  unity_service_url: "http://pro13ga.unitysandbox.com/Unity/unityservice.svc/json"
   appname: 'AdditiveAnalytics.TestApp'
 

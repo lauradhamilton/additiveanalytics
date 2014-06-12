@@ -3,7 +3,7 @@ require 'rails'
 class Provider < ActiveRecord::Base
 
   # Don't save empty strings. Store them as null values in the db.
-  nilify_blanks :before => :create
+  nilify_blanks
 
   def self.import_providers
     (0..100000).each do |provider_id|

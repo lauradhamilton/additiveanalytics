@@ -2,7 +2,7 @@ require 'rails'
 
 class Patient < ActiveRecord::Base
   # Don't save empty strings. Store them as null values in the db.
-  nilify_blanks :before => :create
+  nilify_blanks
 
   def self.find_patients_to_import
     changed_patients_hash = JSON[AllscriptsIntegration.get_changed_patients][0]["getchangedpatientsinfo"]
