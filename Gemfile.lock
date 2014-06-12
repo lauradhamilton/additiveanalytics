@@ -96,6 +96,9 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
     nginx (0.0.2)
+    nilify_blanks (1.0.3)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     passenger (4.0.40)
       daemon_controller (>= 1.2.0)
       rack
@@ -179,6 +182,7 @@ DEPENDENCIES
   jquery-rails
   less-rails-bootstrap
   nginx
+  nilify_blanks
   passenger
   pg
   rack-proxy!

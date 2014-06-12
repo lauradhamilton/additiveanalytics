@@ -30,7 +30,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :race
       t.string :ethnicity
       t.integer :patient_id, :limit => 8
-      t.integer :ssn, :limit => 8
+      t.string :ssn, :limit => 11
       t.string :mrn # Need to figure out what this is
       t.binary :picture_of_patient
       t.string :age_dec

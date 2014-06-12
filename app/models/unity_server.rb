@@ -2,6 +2,9 @@ require 'rails'
 require 'time'
 
 class UnityServer < ActiveRecord::Base
+  # Don't save empty strings. Store them as null values in the db.
+  nilify_blanks :before => :create
+
   def self.import_server_info
     server_info = AllscriptsIntegration.get_unity_server_info
     server_info_hash = JSON[server_info][0]["getserverinfoinfo"][0]

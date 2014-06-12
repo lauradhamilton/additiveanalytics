@@ -34,6 +34,9 @@ end
 # Fonts
 gem "font-awesome-rails"
 
+# When saving a model, don't save empty strings. Save null instead.
+gem "nilify_blanks"
+
 # Serve up blog from EC2 server
 # The original gem by jaswope is no longer being maintained
 # So I am using this fork
