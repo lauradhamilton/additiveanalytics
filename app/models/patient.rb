@@ -1,6 +1,9 @@
 require 'rails'
 
 class Patient < ActiveRecord::Base
+
+  has_many :immunizations
+
   # Don't save empty strings. Store them as null values in the db.
   nilify_blanks
 
