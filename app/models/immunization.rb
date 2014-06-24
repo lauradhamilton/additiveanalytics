@@ -4,6 +4,8 @@ class Immunization < ActiveRecord::Base
 
   belongs_to :patient
 
+  validates_uniqueness_of :description, scope: [:patient_id, :entry_code, :status, :detail, :code, :trans_id, :display_date]
+
   # Don't save empty strings. Store them as null values in the db.
   nilify_blanks
 
