@@ -1,4 +1,4 @@
-patients_needing_flu_shots:
+patients_needing_influenza_shots:
   "select
   p.patient_id
   ,p.gender
