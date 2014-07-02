@@ -13,9 +13,9 @@ patients_needing_influenza_shots:
 	  (select 1 from immunizations i
 	  where i.patient_id = p.patient_id
 		  and display_date >
-			  -- Start looking for flu vaccinations on July 1
-			  -- Flu vaccines should start to become available in late July
-			  -- Count any vaccinations prior to July 1 as belonging to the previous flu season
+			  /*Start looking for flu vaccinations on July 1
+                          Flu vaccines should start to become available in late July
+                          Count any vaccinations prior to July 1 as belonging to the previous flu season */
 			  case
 				  when date_part('month', current_date) >= 7
 					  then date_trunc('year', current_date) + interval '6 months'
