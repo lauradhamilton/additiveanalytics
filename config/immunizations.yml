@@ -1,39 +1,39 @@
 hepatitis_b:
-  doses_age_in_months:
+  patient_age_in_months:
     - 0 #Baby age, in months, when each dose is needed
     - 1
     - 6
 rotavirus:
   rotarix:
-    doses_age_in_months:
+    patient_age_in_months:
       - 2
       - 4
   rotateq:
-    doses_age_in_months:
+    patient_age_in_months:
       - 2
       - 4
       - 6
 diptheria_tetanus_pertussis:
-  doses_age_in_months:
+  patient_age_in_months:
     - 2
     - 4
     - 6
     - 15
 haemophilus_influenza:
-  doses_age_in_months:
+  patient_age_in_months:
     - 2
     - 4
     - 6
     - 12
 pneumococcal_conjugate:
-  doses_age_in_months:
+  patient_age_in_months:
     - 2
     - 4
     - 6
     - 12
 pneumococcal_polysaccharide:
 poliovirus:
-  doses_age_in_months:
+  patient_age_in_months:
     - 2
     - 4
     - 6
@@ -42,22 +42,19 @@ influenza:
 measles_mumps_rubella:
   doses_age_in_months:
     - 12
-  doses_age_in_years:
-    - 4 # in years
+    - 48 # 4 years
 varicella:
-  doses_age_in_months:
+  patient_age_in_months:
     - 12
-  doses_age_in_years:
-    - 4
+    - 48 # 4 years
 hepatitis_a:
-  doses_age_in_months:
+  patient_age_in_months:
     - 12
     - 18
 human_papillomavirus:
-  doses_age_in_years:
-    - 11
+  patient_age_in_years:
+    - 132 # 11 years old
 meningococcal:
-  doses_age_in_years:
-    - 11
-    - 16
-
+  patient_age_in_months:
+    - 132 # 11 years old
+    - 192 # 16 years old
