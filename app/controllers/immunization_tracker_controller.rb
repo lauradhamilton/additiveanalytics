@@ -1,0 +1,2 @@
+class ImmunizationTrackerController < ApplicationController
+end
