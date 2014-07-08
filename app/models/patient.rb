@@ -73,9 +73,6 @@ class Patient < ActiveRecord::Base
     sql_query = [NEEDED_IMMUNIZATIONS_CONFIG][0]['patients_needing_influenza_shots']
     connection = ActiveRecord::Base.connection
     @result = connection.execute(sql_query)
-    @result.each do |row|
-      puts row
-    end
   end 
 
 end
