@@ -32,8 +32,9 @@ class Patient < ActiveRecord::Base
     new_patient.age = new_patient_hash["age"]
     new_patient.gender = new_patient_hash["gender"]
     new_patient.marital_status = new_patient_hash["MaritalStatus"]
-    new_patient.first_name = new_patient_hash["FirstName"]
-    new_patient.middle_name = new_patient_hash["MiddleName"]
+    # Why the fuck are there 3 different conventions for returning names???
+    new_patient.first_name = new_patient_hash["Firstname"]
+    new_patient.middle_name = new_patient_hash["middlename"]
     new_patient.last_name = new_patient_hash["LastName"]
     new_patient.suffix = new_patient_hash["Suffix"]
     new_patient.occupation = new_patient_hash["Occupation"]
