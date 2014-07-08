@@ -13,12 +13,12 @@ class ImmunizationTrackerController < ApplicationController
       data << row
     end
     headers = ["Patient ID", "Gender", "First", "Last", "Email", "Home Phone", "Work Phone", "Cell Phone"]
-    xm = Builder::XmlMarkup.new(:indent => 2)
-    xm.table {
-      #xm.tr { data[0].keys.each { |key| xm.th(key)}}
-      xm.tr {headers.each { |header| xm.th(header)}}
-      data.each { |row| xm.tr { row.values.each { |value| xm.td(value)}}}
-    }
-    @display_patients_needing_influenza_shots = xm
+    cells = data.map do |data|
+      "<tr><td>#{data.values.join('</td><td>')}</td></tr>"
+    end.join("\n ")
+    table = %{<table style="border-spacing: 10px">
+      <tr><th>#{headers.join('</th><th>')}</th></tr>
+      #{cells}</table>}
+    @display_patients_needing_influenza_shots = table
   end
 end
