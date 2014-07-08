@@ -38,11 +38,10 @@ ActiveRecord::Schema.define(version: 20140623225238) do
 
   add_index "influenzas", ["view_date", "title"], name: "index_influenzas_on_view_date_and_title", unique: true, using: :btree
 
-  create_table "medicare_cost_summaries", id: false, force: true do |t|
-    t.integer "id",               null: false
+  create_table "medicare_cost_summaries", force: true do |t|
     t.string  "provider_name"
     t.string  "state"
-    t.text    "procedure_type"
+    t.string  "procedure_type"
     t.integer "procedures_count"
     t.decimal "average_cost"
   end

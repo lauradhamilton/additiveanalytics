@@ -6,6 +6,8 @@ Additiveanalytics::Application.routes.draw do
 
   resources :providers
 
+  resources :medicare_costs
+
   # Static pages
   get "/" => "static_pages#home"
   get "/about" => "static_pages#about"
@@ -23,6 +25,10 @@ Additiveanalytics::Application.routes.draw do
   get "/solutions/flu_tracker_data" => "solutions#flu_tracker_data"
   get "/solutions/treatment_tracker" => "solutions#treatment_tracker"
   get "/solutions/reduce_readmissions" => "solutions#reduce_readmissions"
+  get "/solutions/compare_prices" => "solutions#compare_prices"
+  get "/solutions/compare_prices_data" => "solutions#compare_prices_data"
+  get "/solutions/nationwide_price_compare" => "solutions#nationwide_price_compare"
+  get "/solutions/nationwide_price_compare_data" => "solutions#nationwide_price_compare_data"
 
   # Blog (goes to wordpress blog on other server)
   get "/blog" => redirect("/blog/")

@@ -1,0 +1,24 @@
+$(document).ready ->
+  oTable = $("#compare_prices").dataTable(
+    bProcessing: true
+    sAjaxSource: "compare_prices_data"
+    aoColumns: [
+      {
+        mDataProp: "provider_name"
+      }
+      {
+        mDataProp: "state"
+      }
+      {
+        mDataProp: "procedure_type"
+      }
+      {
+        mDataProp: "procedures_count"
+      }
+      {
+        mDataProp: "average_cost"
+      }
+    ]
+  )
+  return
+

@@ -16,6 +16,8 @@
 //= require dataTables/jquery.dataTables
 //= require jquery.dataTables.columnFilter
 //= require d3
+//= require datamaps.usa.min
+//= require datamaps
 //= require maternity
 //= require twitter/bootstrap
 //= require turbolinks
