@@ -54,3 +54,5 @@ gem 'nginx'
 # Schedule tasks with whenever
 gem 'whenever', :require => false
 
+# Authentication & login
+gem 'devise'

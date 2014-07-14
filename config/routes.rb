@@ -1,5 +1,6 @@
 Additiveanalytics::Application.routes.draw do
 
+  devise_for :users
   resources :unity_servers
 
   resources :states
