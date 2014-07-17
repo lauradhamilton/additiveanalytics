@@ -24,7 +24,7 @@ class ImmunizationTrackerController < ApplicationController
     cells = data.map do |data|
       "<tr><td>#{data.values.join('</td><td>')}</td></tr>"
     end.join("\n ")
-    table = %{<table style="border-spacing: 5px">
+    table = %{<table class="table table-striped">
       <tr><th>#{headers.join('</th><th>')}</th></tr>
       #{cells}</table>}
     @display_patients_needing_influenza_shots = table
