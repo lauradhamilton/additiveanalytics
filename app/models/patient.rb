@@ -72,6 +72,8 @@ class Patient < ActiveRecord::Base
 
   def self.find_patients_needing_influenza_shots
     sql_query = [NEEDED_IMMUNIZATIONS_CONFIG][0]['patients_needing_influenza_shots']
+    #@influenza_cpt_codes = [IMMUNIZATIONS_CONFIG][0]['influenza']['cpt'][0]
+    @influenza_cpt_codes = '90654'
     connection = ActiveRecord::Base.connection
     @result = connection.execute(sql_query)
   end 

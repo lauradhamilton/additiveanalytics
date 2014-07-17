@@ -22,4 +22,5 @@ patients_needing_influenza_shots:
 				  when date_part('month', current_date) < 7
 					  then date_trunc('year', current_date - interval '1 year') + interval '6 months'
 				  end
-	  and i.code = #{[IMMUNIZATIONS_CONFIG][0]['influenza']['cpt'][0]})"
+	  and i.code in ('90654', '90655', '90656', '90657', '90658', '90661', '90662', '90672', '90673', '90685', '90686', '90688', 'Q2033', 'Q2035', 'Q2036', 'Q2037', 'Q2037', 'Q2038'))"
+
