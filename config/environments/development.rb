@@ -25,7 +25,7 @@ Additiveanalytics::Application.configure do
   config.assets.debug = true
 
   # Mailer options
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.perform_deliveries = true 
   config.action_mailer.raise_delivery_errors = true
 
