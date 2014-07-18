@@ -9,6 +9,9 @@ Additiveanalytics::Application.routes.draw do
 
   resources :medicare_costs
 
+  # Transactional emails with Mandrill
+  resources :inbox, :controller => 'inbox', :only => [:show, :create]
+
   # Static pages
   # For everybody to see
   get "/" => "static_pages#home"

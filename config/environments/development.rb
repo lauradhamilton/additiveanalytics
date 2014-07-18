@@ -13,9 +13,6 @@ Additiveanalytics::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -27,6 +24,10 @@ Additiveanalytics::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  # Mailer options
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.perform_deliveries = true 
+  config.action_mailer.raise_delivery_errors = true
+  config.mandrill_mailer.default_url_options = { :host => 'localhost' }
 
 end

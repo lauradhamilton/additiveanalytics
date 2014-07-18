@@ -56,3 +56,6 @@ gem 'whenever', :require => false
 
 # Authentication & login
 gem 'devise'
+
+# Transactional emails
+gem 'mandrill_mailer'
