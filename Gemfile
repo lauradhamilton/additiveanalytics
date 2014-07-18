@@ -58,4 +58,4 @@ gem 'whenever', :require => false
 gem 'devise'
 
 # Transactional emails
-gem 'mandrill_mailer'
+gem 'mandrill-api'
