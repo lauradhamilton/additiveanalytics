@@ -12,10 +12,9 @@ class ImmunizationTask < ActiveRecord::Base
       new_immunization_task = ImmunizationTask.new
       new_immunization_task.patient_id = patient.patient_id
       new_immunization_task.immunization = 'zoster'
-      #unless ImmunizationTask.find_by_patient_id(patient_id)
-      #  new_immunization_task.save
-      #end
-      new_immunization_task.save
+      unless ImmunizationTask.find_by_patient_id_and_immunization(new_immunization_task.patient_id, 'zoster')
+        new_immunization_task.save
+      end
     end
   end
 end
