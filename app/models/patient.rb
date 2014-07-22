@@ -1,4 +1,5 @@
 require 'rails'
+require 'adroit-age'
 
 class Patient < ActiveRecord::Base
 
@@ -76,6 +77,10 @@ class Patient < ActiveRecord::Base
     @influenza_cpt_codes = '90654'
     connection = ActiveRecord::Base.connection
     @result = connection.execute(sql_query)
-  end 
+  end
+
+  def self.find_patients_needing_zoster_shots
+    Patient.where('date_of_birth > ?', Time.now - IMMUNIZATIONS_CONFIG["zoster"]["patient_age_in_months"][0].months)
+  end
 
 end

@@ -59,3 +59,6 @@ gem 'devise'
 
 # Transactional emails
 gem 'mandrill-api'
+
+# Calculate age (works in leap years too)
+gem 'adroit-age'

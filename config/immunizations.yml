@@ -1,4 +1,10 @@
+hepatitis_a:
+  doses: 2
+  patient_age_in_months:
+    - 12
+    - 18
 hepatitis_b:
+  doses: 2
   patient_age_in_months:
     - 0 #Baby age, in months, when each dose is needed
     - 1
@@ -19,6 +25,8 @@ diptheria_tetanus_pertussis:
     - 4
     - 6
     - 15
+  booster_after:
+    - 120 # 10 years
 haemophilus_influenza:
   patient_age_in_months:
     - 2
@@ -44,17 +52,18 @@ measles_mumps_rubella:
     - 12
     - 48 # 4 years
 varicella:
+  doses: 2
   patient_age_in_months:
     - 12
     - 48 # 4 years
-hepatitis_a:
-  patient_age_in_months:
-    - 12
-    - 18
 human_papillomavirus:
+  doses: 3
   patient_age_in_years:
     - 132 # 11 years old
 meningococcal:
   patient_age_in_months:
     - 132 # 11 years old
     - 192 # 16 years old
+zoster: #shingles
+  patient_age_in_months:
+    - 720 # 60 years old
