@@ -4,6 +4,7 @@ require 'adroit-age'
 class Patient < ActiveRecord::Base
 
   has_many :immunizations, :primary_key  => "patient_id"
+  has_many :immunization_tasks, :primary_key => "patient_id"
 
   # Don't save empty strings. Store them as null values in the db.
   nilify_blanks
@@ -82,8 +83,8 @@ class Patient < ActiveRecord::Base
   def self.find_patients_needing_zoster_shots
     zoster_start_age = IMMUNIZATIONS_CONFIG["zoster"]["patient_age_in_months"][0]
     zoster_cpt = IMMUNIZATIONS_CONFIG["zoster"]["cpt"]
-    Patient.find_by_sql "select p.id from patients p
-      where date_of_birth > current_date - interval '#{zoster_start_age} months'
+    Patient.find_by_sql "select * from patients p
+      where date_of_birth < current_date - interval '#{zoster_start_age} months'
       and not exists (select 1 from immunizations i
 	where i.patient_id = p.patient_id
 	and i.code = '#{zoster_cpt}')"
