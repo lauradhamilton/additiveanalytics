@@ -80,7 +80,14 @@ class Patient < ActiveRecord::Base
   end
 
   def self.find_patients_needing_zoster_shots
-    Patient.where('date_of_birth > ?', Time.now - IMMUNIZATIONS_CONFIG["zoster"]["patient_age_in_months"][0].months)
+    zoster_start_age = IMMUNIZATIONS_CONFIG["zoster"]["patient_age_in_months"][0]
+    zoster_cpt = IMMUNIZATIONS_CONFIG["zoster"]["cpt"]
+    Patient.find_by_sql "select p.id from patients p
+      where date_of_birth > current_date - interval '#{zoster_start_age} months'
+      and not exists (select 1 from immunizations i
+	where i.patient_id = p.patient_id
+	and i.code = '#{zoster_cpt}')"
+    #Patient.where('date_of_birth > ?', Time.now - IMMUNIZATIONS_CONFIG["zoster"]["patient_age_in_months"][0].months)
   end
 
 end
