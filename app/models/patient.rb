@@ -73,11 +73,23 @@ class Patient < ActiveRecord::Base
   end
 
   def self.find_patients_needing_influenza_shots
-    sql_query = [NEEDED_IMMUNIZATIONS_CONFIG][0]['patients_needing_influenza_shots']
-    #@influenza_cpt_codes = [IMMUNIZATIONS_CONFIG][0]['influenza']['cpt'][0]
-    @influenza_cpt_codes = '90654'
-    connection = ActiveRecord::Base.connection
-    @result = connection.execute(sql_query)
+    influenza_cpt = IMMUNIZATIONS_CONFIG["influenza"]["cpt"]
+    Patient.find_by_sql "select *
+      from patients p
+      where not exists
+              (select 1 from immunizations i
+              where i.patient_id = p.patient_id
+                      and display_date >
+                              /*Start looking for flu vaccinations on July 1
+                              Flu vaccines should start to become available in late July
+                              Count any vaccinations prior to July 1 as belonging to the previous flu season */
+                              case
+                                      when date_part('month', current_date) >= 7
+                                              then date_trunc('year', current_date) + interval '6 months'
+                                      when date_part('month', current_date) < 7
+                                              then date_trunc('year', current_date - interval '1 year') + interval '6 months'
+                                      end
+              and i.code in (#{influenza_cpt}))"
   end
 
   def self.find_patients_needing_zoster_shots
