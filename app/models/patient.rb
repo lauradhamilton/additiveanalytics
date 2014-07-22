@@ -87,7 +87,6 @@ class Patient < ActiveRecord::Base
       and not exists (select 1 from immunizations i
 	where i.patient_id = p.patient_id
 	and i.code = '#{zoster_cpt}')"
-    #Patient.where('date_of_birth > ?', Time.now - IMMUNIZATIONS_CONFIG["zoster"]["patient_age_in_months"][0].months)
   end
 
 end
