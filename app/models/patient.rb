@@ -2,7 +2,7 @@ require 'rails'
 
 class Patient < ActiveRecord::Base
 
-  has_many :immunizations
+  has_many :immunizations, :foreign_key  => "patient_id"
 
   # Don't save empty strings. Store them as null values in the db.
   nilify_blanks

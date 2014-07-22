@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717214218) do
+ActiveRecord::Schema.define(version: 20140722164350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,8 @@ ActiveRecord::Schema.define(version: 20140717214218) do
     t.string  "age_dec"
     t.string  "patient_location"
   end
+
+  add_index "patients", ["patient_id"], name: "index_patients_on_patient_id", unique: true, using: :btree
 
   create_table "price_variances_by_state", id: false, force: true do |t|
     t.string  "state"

@@ -2,7 +2,7 @@ require 'rails'
 
 class Immunization < ActiveRecord::Base
 
-  belongs_to :patient
+  belongs_to :patient, :foreign_key  => "patient_id"
 
   validates_uniqueness_of :description, scope: [:patient_id, :entry_code, :status, :detail, :code, :trans_id, :display_date]
 
