@@ -5,6 +5,7 @@ hepatitis_a:
     - 12
     - 18
 hepatitis_b:
+  cpt: "'90746','90743','90745','90636','90740','90747'"
   doses: 3
   patient_age_in_months:
     - 0 #Baby age, in months, when each dose is needed

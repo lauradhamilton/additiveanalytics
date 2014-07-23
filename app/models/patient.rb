@@ -94,8 +94,60 @@ class Patient < ActiveRecord::Base
         having count(i.id) = 1) -- Patients who have only received 1 hep a shot
       and not exists (select 1 from immunizations i
         where i.patient_id = p.patient_id
-        and i.code in (#{hepatitis_a_cpt}')
+        and i.code in (#{hepatitis_a_cpt})
         and i.display_date > current_date - interval '6 months')"
+  end
+
+  def self.find_patients_needing_first_hepatitis_b_shot
+    hepatitis_b_cpt = IMMUNIZATIONS_CONFIG['hepatitis_b']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['hepatitis_b']['patient_age_in_months'][0]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and not exists (select 1
+        from immunizations i
+        where i.patient_id = p.patient_id
+        and i.code in (#{hepatitis_b_cpt}))"
+  end
+
+  def self.find_patients_needing_second_hepatitis_b_shot
+    hepatitis_b_cpt = IMMUNIZATIONS_CONFIG['hepatitis_b']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['hepatitis_b']['patient_age_in_months'][1]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{hepatitis_b_cpt})
+        group by 1
+        having count(i.id) = 1) -- Patients who have only received 1 hep b shot
+      and not exists (select 1 from immunizations i
+        where i.patient_id = p.patient_id
+        and i.code in (#{hepatitis_b_cpt})
+        and i.display_date > current_date - interval '1 months')"
+  end
+
+  def self.find_patients_needing_third_hepatitis_b_shot
+    hepatitis_b_cpt = IMMUNIZATIONS_CONFIG['hepatitis_b']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['hepatitis_b']['patient_age_in_months'][2]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{hepatitis_b_cpt})
+        group by 1
+        having count(i.id) = 2) -- Patients who have only received 2 hep b shots
+      and (select min(display_date) from immunizations i
+        where i.patient_id = p.patient_id
+        --Third dose must be at least 6 months after the first dose
+        and i.code in (#{hepatitis_b_cpt})) < current_date - interval '6 months'"
   end
 
   def self.find_patients_needing_influenza_shots
