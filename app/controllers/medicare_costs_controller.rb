@@ -46,6 +46,7 @@ class MedicareCostsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_medicare_cost
     @medicare_cost = MedicareCost.find(params[:id])

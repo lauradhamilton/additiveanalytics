@@ -75,7 +75,7 @@ Style/EmptyLines:
 
 # Offense count: 4
 Style/EmptyLinesAroundAccessModifier:
-  Enabled: false #FIXME
+  Enabled: true
 
 # Offense count: 18
 # Cop supports --auto-correct.
