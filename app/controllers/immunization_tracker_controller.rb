@@ -19,8 +19,8 @@ class ImmunizationTrackerController < ApplicationController
       data << row
     end
     headers = ['Patient ID', 'Gender', 'First', 'Last', 'Email', 'Home Phone', 'Work Phone', 'Cell Phone']
-    cells = data.map do |data|
-      "<tr><td>#{data.values.join('</td><td>')}</td></tr>"
+    cells = data.map do |datum|
+      "<tr><td>#{datum.values.join('</td><td>')}</td></tr>"
     end.join("\n ")
     table = %(<table class="table table-striped">
       <tr><th>#{headers.join('</th><th>')}</th></tr>

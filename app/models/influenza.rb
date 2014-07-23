@@ -24,9 +24,8 @@ class Influenza < ActiveRecord::Base
       new_influenza.title = 'Influenza'
       new_influenza.view_date = date[0]
       new_influenza.daily_views = date[1]
-      begin
+      unless new_influenza.view_date.nil? | new_influenza.daily_views.nil?
         new_influenza.save
-      rescue => e
       end
     end
   end
