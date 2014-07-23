@@ -46,13 +46,13 @@ class ProvidersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_provider
-      @provider = Provider.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_provider
+    @provider = Provider.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def provider_params
-      params.require(:provider).permit(:last_name, :first_name, :middle_name, :suffix_name, :prefix_name, :title_name, :entry_code, :entry_pneumonic, :provider_key_ext, :npi, :address_line_1, :address_line_2, :city, :state, :phone, :fax, :specialty, :provider_is_inactive, :expiration_date, :dea_number)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def provider_params
+    params.require(:provider).permit(:last_name, :first_name, :middle_name, :suffix_name, :prefix_name, :title_name, :entry_code, :entry_pneumonic, :provider_key_ext, :npi, :address_line_1, :address_line_2, :city, :state, :phone, :fax, :specialty, :provider_is_inactive, :expiration_date, :dea_number)
+  end
 end

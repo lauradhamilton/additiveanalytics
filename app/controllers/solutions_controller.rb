@@ -27,7 +27,7 @@ class SolutionsController < ApplicationController
 
   def flu_tracker_data
     respond_to do |format|
-      format.any {render :json => Influenza.convert_influenza_data_to_json.html_safe}
+      format.any { render json: Influenza.convert_influenza_data_to_json.html_safe }
     end
   end
 
@@ -51,8 +51,7 @@ class SolutionsController < ApplicationController
 
   def nationwide_price_compare_data
     respond_to do |format|
-      format.any { render json: PriceVariancesByState.convert_price_variance_data_to_json}
+      format.any { render json: PriceVariancesByState.convert_price_variance_data_to_json }
     end
   end
-
 end

@@ -5,7 +5,7 @@ class ProductsDatatable
     @view = view
   end
 
-  def as_json(options={})
+  def as_json(_options={})
     {
       sEcho: params[:sEcho].to_i,
       aaData: data

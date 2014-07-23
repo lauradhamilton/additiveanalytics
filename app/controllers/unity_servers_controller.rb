@@ -46,13 +46,13 @@ class UnityServersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_unity_server
-      @unity_server = UnityServer.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_unity_server
+    @unity_server = UnityServer.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def unity_server_params
-      params.require(:unity_server).permit(:server_time_zone, :server_time, :server_date_time_offset, :system, :product_version, :uai_born_on_date)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def unity_server_params
+    params.require(:unity_server).permit(:server_time_zone, :server_time, :server_date_time_offset, :system, :product_version, :uai_born_on_date)
+  end
 end

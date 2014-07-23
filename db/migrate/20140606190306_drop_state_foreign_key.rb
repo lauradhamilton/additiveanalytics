@@ -1,5 +1,4 @@
 class DropStateForeignKey < ActiveRecord::Migration
-
   def self.up
     execute 'ALTER TABLE providers DROP CONSTRAINT fk_providers_states'
   end
@@ -12,5 +11,4 @@ class DropStateForeignKey < ActiveRecord::Migration
         REFERENCES states(code)
     SQL
   end
-
 end

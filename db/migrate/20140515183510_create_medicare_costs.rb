@@ -22,12 +22,12 @@ class CreateMedicareCosts < ActiveRecord::Migration
       t.float :services_provided_count
       t.integer :beneficiaries_count
       t.integer :distinct_services_per_beneficiary_count
-      t.decimal :average_medicare_allowed_amount, :precision => 8, :scale => 2
-      t.decimal :stdev_medicare_allowed_amount, :precision => 8, :scale => 2
-      t.decimal :average_submitted_charge_amount, :precision => 8, :scale => 2
-      t.decimal :stdev_submitted_charge_amount, :precision => 8, :scale => 2
-      t.decimal :average_medicare_payment_amount, :precision => 8, :scale => 2
-      t.decimal :stdev_medicare_payment_amount, :precision => 8, :scale => 2
+      t.decimal :average_medicare_allowed_amount, precision: 8, scale: 2
+      t.decimal :stdev_medicare_allowed_amount, precision: 8, scale: 2
+      t.decimal :average_submitted_charge_amount, precision: 8, scale: 2
+      t.decimal :stdev_submitted_charge_amount, precision: 8, scale: 2
+      t.decimal :average_medicare_payment_amount, precision: 8, scale: 2
+      t.decimal :stdev_medicare_payment_amount, precision: 8, scale: 2
 
       t.timestamps
     end

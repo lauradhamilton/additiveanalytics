@@ -10,7 +10,7 @@ Additiveanalytics::Application.routes.draw do
   resources :medicare_costs
 
   # Transactional emails with Mandrill
-  resources :inbox, :controller => 'inbox', :only => [:show, :create]
+  resources :inbox, controller: 'inbox', only: [:show, :create]
 
   # Static pages
   # For everybody to see
@@ -83,7 +83,7 @@ Additiveanalytics::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

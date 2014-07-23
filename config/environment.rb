@@ -12,6 +12,6 @@ NEEDED_IMMUNIZATIONS_CONFIG = YAML.load_file("#{Rails.root}/config/sql/find_need
 
 # Load VALID_PROVIDER_DOMAINS and EMAIL_CONFIGS in other initializers
 
-#VALID_PROVIDER_DOMAINS = YAML.load_file("#{Rails.root}/config/allowed_email_domains.yml") rescue {}
+# VALID_PROVIDER_DOMAINS = YAML.load_file("#{Rails.root}/config/allowed_email_domains.yml") rescue {}
 
-#EMAIL_CONFIGS = YAML.load_file("#{Rails.root}/config/email.yml") rescue{}
+# EMAIL_CONFIGS = YAML.load_file("#{Rails.root}/config/email.yml") rescue{}

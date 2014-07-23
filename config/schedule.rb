@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
+require File.expand_path(File.dirname(__FILE__) + '/../config/environment')
 set :path, Rails.root
 set :output, Rails.root.join('log', 'cron.log')
 

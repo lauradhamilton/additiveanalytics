@@ -46,13 +46,13 @@ class MedicareCostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medicare_cost
-      @medicare_cost = MedicareCost.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medicare_cost
+    @medicare_cost = MedicareCost.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def medicare_cost_params
-      params.require(:medicare_cost).permit(:npi, :last_name, :first_name, :mi, :credentials, :gender, :entity_code, :address_line_1, :address_line_2, :city, :zip, :state, :country, :provider_type, :medicare_participation_indicator, :place_of_service, :hcps_code, :hcpcs_description, :services_provided_count, :beneficiaries_count, :distinct_services_per_beneficiary_count, :average_medicare_allowed_amount, :stdev_medicare_allowed_amount, :average_submitted_charge_amount, :stdev_submitted_charge_amount, :average_medicare_payment_amount, :stdev_medicare_payment_amount)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def medicare_cost_params
+    params.require(:medicare_cost).permit(:npi, :last_name, :first_name, :mi, :credentials, :gender, :entity_code, :address_line_1, :address_line_2, :city, :zip, :state, :country, :provider_type, :medicare_participation_indicator, :place_of_service, :hcps_code, :hcpcs_description, :services_provided_count, :beneficiaries_count, :distinct_services_per_beneficiary_count, :average_medicare_allowed_amount, :stdev_medicare_allowed_amount, :average_submitted_charge_amount, :stdev_submitted_charge_amount, :average_medicare_payment_amount, :stdev_medicare_payment_amount)
+  end
 end

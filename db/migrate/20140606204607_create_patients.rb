@@ -10,17 +10,17 @@ class CreatePatients < ActiveRecord::Migration
       t.string :suffix
       t.string :occupation
       t.string :employer
-      t.integer :phone_number, :limit => 8
-      t.integer :work_phone, :limit => 8
-      t.integer :cell_phone, :limit => 8
+      t.integer :phone_number, limit: 8
+      t.integer :work_phone, limit: 8
+      t.integer :cell_phone, limit: 8
       t.string :address_line_1
       t.string :address_line_2
       t.string :city
       t.string :state
       t.string :zip
       t.string :email
-      t.date   :date_of_birth
-      t.integer :physician_phone, :limit => 8
+      t.date :date_of_birth
+      t.integer :physician_phone, limit: 8
       t.string :physician_first_name
       t.string :physician_last_name
       t.string :physician_username
@@ -29,8 +29,8 @@ class CreatePatients < ActiveRecord::Migration
       t.string :language
       t.string :race
       t.string :ethnicity
-      t.integer :patient_id, :limit => 8
-      t.string :ssn, :limit => 11
+      t.integer :patient_id, limit: 8
+      t.string :ssn, limit: 11
       t.string :mrn # Need to figure out what this is
       t.binary :picture_of_patient
       t.string :age_dec

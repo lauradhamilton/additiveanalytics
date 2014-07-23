@@ -1,7 +1,7 @@
 class AddPatientIdForeignKey < ActiveRecord::Migration
   def self.up
     # Patients.patient_id should be unique
-    add_index :patients, :patient_id, :unique => true
+    add_index :patients, :patient_id, unique: true
 
     # Add immunizations.patient_id foriegn key
     execute <<-SQL
@@ -19,5 +19,3 @@ class AddPatientIdForeignKey < ActiveRecord::Migration
     SQL
   end
 end
-
-

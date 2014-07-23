@@ -12,21 +12,21 @@ class AllscriptsIntegration
   @@appname = ALLSCRIPTS_CONFIG['appname']
 
   def self.get_security_token
-    credentials_to_send = {'Username' => @@username,
-      'Password' => @@password}.to_json
-    uri = URI.parse(@@unity_service_url + "/GetToken")
-    http = Net::HTTP.new(uri.host,uri.port)
-    request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
+    credentials_to_send = { 'Username' => @@username,
+      'Password' => @@password }.to_json
+    uri = URI.parse(@@unity_service_url + '/GetToken')
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
     request.body = "#{credentials_to_send}"
     response = http.request(request)
-    return response.body
+    response.body
   end
 
   def self.get_unity_server_info
-    uri = URI.parse(@@unity_service_url + "/MagicJson")
-    http = Net::HTTP.new(uri.host,uri.port)
-    request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
-    request.body = {'Action' => 'GetServerInfo',
+    uri = URI.parse(@@unity_service_url + '/MagicJson')
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
+    request.body = { 'Action' => 'GetServerInfo',
       'Appname' => @@appname,
       'AppUserID' => '',
       'PatientID' => '',
@@ -37,18 +37,18 @@ class AllscriptsIntegration
       'Parameter4' => '',
       'Parameter5' => '',
       'Parameter6' => '',
-      'Data' => ''}.to_json
+      'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
-    return response.body
+    response.body
   end
 
   # Pulls up provider details
   def self.get_provider(provider_id)
-    uri = URI.parse(@@unity_service_url + "/MagicJson")
-    http = Net::HTTP.new(uri.host,uri.port)
-    request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
-    request.body = {'Action' => 'GetProvider',
+    uri = URI.parse(@@unity_service_url + '/MagicJson')
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
+    request.body = { 'Action' => 'GetProvider',
       'Appname' => @@appname,
       'AppUserID' => '',
       'PatientID' => '',
@@ -59,17 +59,17 @@ class AllscriptsIntegration
       'Parameter4' => '',
       'Parameter5' => '',
       'Parameter6' => '',
-      'Data' => ''}.to_json
+      'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
-    return response.body
+    response.body
   end
 
-  def self.search_patients(user_id,search_term)
-    uri = URI.parse(@@unity_service_url + "/MagicJson")
-    http = Net::HTTP.new(uri.host,uri.port)
-    request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
-    request.body = {'Action' => 'SearchPatients',
+  def self.search_patients(user_id, search_term)
+    uri = URI.parse(@@unity_service_url + '/MagicJson')
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
+    request.body = { 'Action' => 'SearchPatients',
       'AppUserID' => user_id,
       'Appname' => @@appname,
       'PatientID' => '',
@@ -80,17 +80,17 @@ class AllscriptsIntegration
       'Parameter4' => '',
       'Parameter5' => '',
       'Parameter6' => '',
-      'Data' => ''}.to_json
+      'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
-    return response.body
+    response.body
   end
 
   def self.get_changed_patients
-    uri = URI.parse(@@unity_service_url + "/MagicJson")
-    http = Net::HTTP.new(uri.host,uri.port)
-    request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
-    request.body = {'Action' => 'GetChangedPatients',
+    uri = URI.parse(@@unity_service_url + '/MagicJson')
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
+    request.body = { 'Action' => 'GetChangedPatients',
       'Appname' => @@appname,
       'AppUserID' => '',
       'PatientID' => '',
@@ -101,17 +101,17 @@ class AllscriptsIntegration
       'Parameter4' => '',
       'Parameter5' => '',
       'Parameter6' => '',
-      'Data' => ''}.to_json
+      'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
-    return response.body
+    response.body
   end
 
   def self.get_immunizations(user_id, patient_id)
-    uri = URI.parse(@@unity_service_url + "/MagicJson")
-    http = Net::HTTP.new(uri.host,uri.port)
-    request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
-    request.body = {'Action' => 'GetClinicalSummary',
+    uri = URI.parse(@@unity_service_url + '/MagicJson')
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
+    request.body = { 'Action' => 'GetClinicalSummary',
       'Appname' => @@appname,
       'AppUserID' => user_id,
       'PatientID' => patient_id,
@@ -122,19 +122,19 @@ class AllscriptsIntegration
       'Parameter4' => '',
       'Parameter5' => '',
       'Parameter6' => '',
-      'Data' => ''}.to_json
+      'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
-    return response.body
+    response.body
   end
 
   # Pulls up basic (non-clinical) information about patient
   # Name, gender, birthdate, ssn, address, phone, email, insurance, etc.
   def self.get_patient(patient_id)
-    uri = URI.parse(@@unity_service_url + "/MagicJson")
-    http = Net::HTTP.new(uri.host,uri.port)
-    request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
-    request.body = {'Action' => 'GetPatient',
+    uri = URI.parse(@@unity_service_url + '/MagicJson')
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
+    request.body = { 'Action' => 'GetPatient',
       'Appname' => @@appname,
       'AppUserID' => '',
       'PatientID' => patient_id,
@@ -145,10 +145,9 @@ class AllscriptsIntegration
       'Parameter4' => '',
       'Parameter5' => '',
       'Parameter6' => '',
-      'Data' => ''}.to_json
+      'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
-    return response.body
+    response.body
   end
-
 end
