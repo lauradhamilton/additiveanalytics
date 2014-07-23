@@ -26,7 +26,7 @@ module Additiveanalytics
 
     config.middleware.use Rack::ReverseProxy do
       reverse_proxy_options preserve_host: true
-      reverse_proxy /^\/blog(\/.*)$/, 'http://blog.additiveanalytics.com/blog$1'
+      reverse_proxy((/^\/blog(\/.*)$/), 'http://blog.additiveanalytics.com/blog$1')
     end
   end
 end
