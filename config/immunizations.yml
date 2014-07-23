@@ -5,7 +5,7 @@ hepatitis_a:
     - 12
     - 18
 hepatitis_b:
-  doses: 2
+  doses: 3
   patient_age_in_months:
     - 0 #Baby age, in months, when each dose is needed
     - 1

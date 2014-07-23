@@ -83,14 +83,19 @@ class Patient < ActiveRecord::Base
     hepatitis_a_cpt = IMMUNIZATIONS_CONFIG['hepatitis_a']['cpt']
     Patient.find_by_sql "select *
       from patients p
-      where p.id in (
+      where p.date_of_birth < current_date - interval '18 months'
+      and p.id in (
         select
         p.id
         from patients p
         inner join immunizations i on i.patient_id = i.patient_id
           and i.code in (#{hepatitis_a_cpt})
         group by 1
-        having count(i.id) = 1)" # Patients who have only received 1 hep a shot
+        having count(i.id) = 1) -- Patients who have only received 1 hep a shot
+      and not exists (select 1 from immunizations i
+        where i.patient_id = p.patient_id
+        and i.code in (#{hepatitis_a_cpt}')
+        and i.display_date > current_date - interval '6 months')"
   end
 
   def self.find_patients_needing_influenza_shots
