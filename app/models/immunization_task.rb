@@ -10,6 +10,7 @@ class ImmunizationTask < ActiveRecord::Base
     create_hepatitis_b_tasks
     create_influenza_tasks
     create_zoster_tasks
+    create_meningococcal_tasks
   end
 
   def self.create_hepatitis_a_tasks
@@ -94,4 +95,29 @@ class ImmunizationTask < ActiveRecord::Base
       end
     end
   end
+
+  def self.create_meningococcal_tasks
+    meningococcal_series_1_patients = Patient.find_patients_needing_first_meningococcal_shot
+    meningococcal_series_1_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'meningococcal'
+      new_immunization_task.series_number = 1
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'meningococcal', 1)
+        new_immunization_task.save
+      end
+    end
+
+    meningococcal_series_2_patients = Patient.find_patients_needing_second_meningococcal_shot
+    meningococcal_series_2_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'meningococcal'
+      new_immunization_task.series_number = 2
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'meningococcal', 2)
+        new_immunization_task.save
+      end
+    end
+  end
+
 end

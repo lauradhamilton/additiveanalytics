@@ -170,6 +170,36 @@ class Patient < ActiveRecord::Base
               and i.code in (#{influenza_cpt}))"
   end
 
+  def self.find_patients_needing_first_meningococcal_shot
+    meningococcal_cpt = IMMUNIZATIONS_CONFIG['meningococcal']['cpt']
+    meningococcal_start_age = IMMUNIZATIONS_CONFIG['meningococcal']['patient_age_in_months'][0]
+    Patient.find_by_sql "select * from patients p
+      where date_of_birth < current_date - interval '#{meningococcal_start_age} months'
+      and not exists (select 1 from immunizations i
+        where i.patient_id = p.patient_id
+          and i.code in (#{meningococcal_cpt}))"
+  end
+
+  def self.find_patients_needing_second_meningococcal_shot
+    meningococcal_cpt = IMMUNIZATIONS_CONFIG['meningococcal']['cpt']
+    meningococcal_start_age = IMMUNIZATIONS_CONFIG['meningococcal']['patient_age_in_months'][1]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{meningococcal_start_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{meningococcal_cpt})
+        group by 1
+        having count(i.id) = 1)
+      and not exists (select 1 from immunizations i
+        where i.patient_id = p.patient_id
+        and i.code in (#{meningococcal_cpt})
+        and i.display_date > current_date - interval '5 years')"
+  end
+
   def self.find_patients_needing_zoster_shots
     zoster_start_age = IMMUNIZATIONS_CONFIG['zoster']['patient_age_in_months'][0]
     zoster_cpt = IMMUNIZATIONS_CONFIG['zoster']['cpt']

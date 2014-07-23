@@ -64,10 +64,11 @@ human_papillomavirus:
   patient_age_in_years:
     - 132 # 11 years old
 meningococcal:
+  cpt: "'90644', '90733', '90734'"
   patient_age_in_months:
     - 132 # 11 years old
     - 192 # 16 years old
 zoster: #shingles
-  cpt: 90736
+  cpt: '90736'
   patient_age_in_months:
     - 720 # 60 years old
