@@ -1,4 +1,5 @@
 hepatitis_a:
+  cpt: "'90632', '90633','90634','90636','90730'"
   doses: 2
   patient_age_in_months:
     - 12
