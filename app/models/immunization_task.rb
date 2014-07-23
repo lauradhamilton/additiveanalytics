@@ -17,8 +17,9 @@ class ImmunizationTask < ActiveRecord::Base
     hepatitis_a_series_1_patients.each do |patient|
       new_immunization_task = ImmunizationTask.new
       new_immunization_task.patient_id = patient.patient_id
-      new_immunization_task.immunization = 'hepatitis_a_series_1'
-      unless ImmunizationTask.find_by_patient_id_and_immunization(new_immunization_task.patient_id, 'hepatitis_a_series_1')
+      new_immunization_task.immunization = 'hepatitis_a'
+      new_immunization_task.series_number = 1
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'hepatitis_a', 1)
         new_immunization_task.save
       end
     end
@@ -27,8 +28,9 @@ class ImmunizationTask < ActiveRecord::Base
     hepatitis_a_series_2_patients.each do |patient|
       new_immunization_task = ImmunizationTask.new
       new_immunization_task.patient_id = patient.patient_id
-      new_immunization_task.immunization = 'hepatitis_a_series_2'
-      unless ImmunizationTask.find_by_patient_id_and_immunization(new_immunization_task.patient_id, 'hepatitis_a_series_2')
+      new_immunization_task.immunization = 'hepatitis_a'
+      new_immunization_task.series_number = 2
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'hepatitis_a', 2)
         new_immunization_task.save
       end
     end
