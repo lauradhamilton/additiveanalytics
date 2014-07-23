@@ -62,3 +62,6 @@ gem 'mandrill-api'
 
 # Calculate age (works in leap years too)
 gem 'adroit-age'
+
+# Code quality & process tools
+gem 'rubocop', require: false
