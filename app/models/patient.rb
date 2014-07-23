@@ -90,7 +90,7 @@ class Patient < ActiveRecord::Base
         p.id
         from patients p
         inner join immunizations i on i.patient_id = i.patient_id
-	  and i.code in (#{hepatitis_a_cpt})
+          and i.code in (#{hepatitis_a_cpt})
         group by 1
         having count(i.id) = 1)" # Patients who have only received 1 hep a shot
   end
@@ -121,7 +121,7 @@ class Patient < ActiveRecord::Base
     Patient.find_by_sql "select * from patients p
       where date_of_birth < current_date - interval '#{zoster_start_age} months'
       and not exists (select 1 from immunizations i
-	where i.patient_id = p.patient_id
-	and i.code = '#{zoster_cpt}')"
+        where i.patient_id = p.patient_id
+          and i.code = '#{zoster_cpt}')"
   end
 end

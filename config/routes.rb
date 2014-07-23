@@ -14,7 +14,7 @@ Additiveanalytics::Application.routes.draw do
 
   # Static pages
   # For everybody to see
-  get'/' => 'static_pages#home'
+  get '/' => 'static_pages#home'
   get '/about' => 'static_pages#about'
   get '/contact' => 'static_pages#contact'
   get '/privacy_policy' => 'static_pages#privacy_policy'
