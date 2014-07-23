@@ -66,9 +66,7 @@ class Patient < ActiveRecord::Base
     new_patient.patient_location = new_patient_hash['PatientLocation']
 
     # Only import patients we have not seen before
-    unless Patient.find_by_patient_id(patient_id)
-      new_patient.save
-    end
+    new_patient.save unless Patient.find_by_patient_id(patient_id)
   end
 
   def self.find_patients_needing_first_hepatitis_a_shot

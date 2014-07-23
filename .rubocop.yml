@@ -91,7 +91,7 @@ Style/HashSyntax:
 # Offense count: 3
 # Configuration parameters: MaxLineLength.
 Style/IfUnlessModifier:
-  Enabled: false #FIXME
+  Enabled: true #FIXME
 
 # Offense count: 2
 # Cop supports --auto-correct.

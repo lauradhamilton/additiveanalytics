@@ -24,8 +24,6 @@ class UnityServer < ActiveRecord::Base
     # Method should be safe
     # Should only save 1 record per day
     # Save the unity server record unless we've already saved it today
-    unless UnityServer.find_by 'created_at > ?', Date.today
-      new_server_info.save
-    end
+    new_server_info.save unless UnityServer.find_by 'created_at > ?', Date.today
   end
 end

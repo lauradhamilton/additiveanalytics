@@ -35,9 +35,7 @@ class Provider < ActiveRecord::Base
 
         # Method should be save
         # Only save if we don't have the provider yet
-        unless Provider.find_by_id provider_id
-          new_provider.save
-        end
+        new_provider.save unless Provider.find_by_id provider_id
       end
 
     end
