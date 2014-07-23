@@ -80,6 +80,6 @@ Additiveanalytics::Application.configure do
 
   config.action_mailer.default_url_options = { host: 'additiveanalytics.com' }
 
-  ALLSCRIPTS_CONFIG = YAML.load_file("#{RAils.root}/config/allscripts.yml")[Rails.env] rescue {}
+  ALLSCRIPTS_CONFIG = YAML.load_file("#{Rails.root}/config/allscripts.yml")[Rails.env]
 
 end

@@ -1,6 +1,7 @@
 require 'yaml'
+require 'rails'
 
-EMAIL_CONFIGS = YAML.load_file("#{Rails.root}/config/email.yml") rescue{}
+EMAIL_CONFIGS = YAML.load_file("#{Rails.root}/config/email.yml")
 
 ActionMailer::Base.smtp_settings = {
   address: 'smtp.mandrillapp.com',

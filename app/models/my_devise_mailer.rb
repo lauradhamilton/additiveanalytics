@@ -2,7 +2,7 @@ require 'mandrill'
 require 'yaml'
 require 'rails'
 
-EMAIL_CONFIGS = YAML.load_file("#{Rails.root}/config/email.yml") rescue{}
+EMAIL_CONFIGS = YAML.load_file("#{Rails.root}/config/email.yml")
 
 # Override the standard devise mailer to use pretty templates in Mandrill
 class MyDeviseMailer < Devise::Mailer

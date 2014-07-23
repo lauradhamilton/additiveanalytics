@@ -152,7 +152,7 @@ Style/RegexpLiteral:
 
 # Offense count: 8
 Style/RescueModifier:
-  Enabled: false #FIXME
+  Enabled: true #FIXME
 
 # Offense count: 120
 # Cop supports --auto-correct.

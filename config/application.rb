@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-ENV.update YAML.load_file("#{Rails.root}config/allscripts.yml")[Rails.env] rescue {}
+ENV.update YAML.load_file("#{Rails.root}config/allscripts.yml")[Rails.env]
 
 module Additiveanalytics
   class Application < Rails::Application
