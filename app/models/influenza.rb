@@ -6,7 +6,7 @@ require 'rails'
 
 class Influenza < ActiveRecord::Base
   validates :title, uniqueness: { scope: :view_date,
-    message: 'Only one record per title per day' }
+                                  message: 'Only one record per title per day' }
 
   def self.import_wikipedia_data(month)
     uri = URI.parse('http://stats.grok.se/json/en/' + month + '/Influenza')

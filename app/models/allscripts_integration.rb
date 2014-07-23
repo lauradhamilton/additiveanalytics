@@ -13,7 +13,7 @@ class AllscriptsIntegration
 
   def self.get_security_token
     credentials_to_send = { 'Username' => @@username,
-      'Password' => @@password }.to_json
+                            'Password' => @@password }.to_json
     uri = URI.parse(@@unity_service_url + '/GetToken')
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
@@ -27,17 +27,17 @@ class AllscriptsIntegration
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
     request.body = { 'Action' => 'GetServerInfo',
-      'Appname' => @@appname,
-      'AppUserID' => '',
-      'PatientID' => '',
-      'Token' => AllscriptsIntegration.get_security_token,
-      'Parameter1' => '',
-      'Parameter2' => '',
-      'Parameter3' => '',
-      'Parameter4' => '',
-      'Parameter5' => '',
-      'Parameter6' => '',
-      'Data' => '' }.to_json
+                     'Appname' => @@appname,
+                     'AppUserID' => '',
+                     'PatientID' => '',
+                     'Token' => AllscriptsIntegration.get_security_token,
+                     'Parameter1' => '',
+                     'Parameter2' => '',
+                     'Parameter3' => '',
+                     'Parameter4' => '',
+                     'Parameter5' => '',
+                     'Parameter6' => '',
+                     'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
     response.body
@@ -49,17 +49,17 @@ class AllscriptsIntegration
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
     request.body = { 'Action' => 'GetProvider',
-      'Appname' => @@appname,
-      'AppUserID' => '',
-      'PatientID' => '',
-      'Token' => AllscriptsIntegration.get_security_token,
-      'Parameter1' => provider_id,
-      'Parameter2' => '',
-      'Parameter3' => '',
-      'Parameter4' => '',
-      'Parameter5' => '',
-      'Parameter6' => '',
-      'Data' => '' }.to_json
+                     'Appname' => @@appname,
+                     'AppUserID' => '',
+                     'PatientID' => '',
+                     'Token' => AllscriptsIntegration.get_security_token,
+                     'Parameter1' => provider_id,
+                     'Parameter2' => '',
+                     'Parameter3' => '',
+                     'Parameter4' => '',
+                     'Parameter5' => '',
+                     'Parameter6' => '',
+                     'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
     response.body
@@ -70,17 +70,17 @@ class AllscriptsIntegration
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
     request.body = { 'Action' => 'SearchPatients',
-      'AppUserID' => user_id,
-      'Appname' => @@appname,
-      'PatientID' => '',
-      'Token' => AllscriptsIntegration.get_security_token,
-      'Parameter1' => search_term,
-      'Parameter2' => '',
-      'Parameter3' => '',
-      'Parameter4' => '',
-      'Parameter5' => '',
-      'Parameter6' => '',
-      'Data' => '' }.to_json
+                     'AppUserID' => user_id,
+                     'Appname' => @@appname,
+                     'PatientID' => '',
+                     'Token' => AllscriptsIntegration.get_security_token,
+                     'Parameter1' => search_term,
+                     'Parameter2' => '',
+                     'Parameter3' => '',
+                     'Parameter4' => '',
+                     'Parameter5' => '',
+                     'Parameter6' => '',
+                     'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
     response.body
@@ -91,17 +91,17 @@ class AllscriptsIntegration
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
     request.body = { 'Action' => 'GetChangedPatients',
-      'Appname' => @@appname,
-      'AppUserID' => '',
-      'PatientID' => '',
-      'Token' => AllscriptsIntegration.get_security_token,
-      'Parameter1' => '1986-01-01',
-      'Parameter2' => '',
-      'Parameter3' => '',
-      'Parameter4' => '',
-      'Parameter5' => '',
-      'Parameter6' => '',
-      'Data' => '' }.to_json
+                     'Appname' => @@appname,
+                     'AppUserID' => '',
+                     'PatientID' => '',
+                     'Token' => AllscriptsIntegration.get_security_token,
+                     'Parameter1' => '1986-01-01',
+                     'Parameter2' => '',
+                     'Parameter3' => '',
+                     'Parameter4' => '',
+                     'Parameter5' => '',
+                     'Parameter6' => '',
+                     'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
     response.body
@@ -112,17 +112,17 @@ class AllscriptsIntegration
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
     request.body = { 'Action' => 'GetClinicalSummary',
-      'Appname' => @@appname,
-      'AppUserID' => user_id,
-      'PatientID' => patient_id,
-      'Token' => AllscriptsIntegration.get_security_token,
-      'Parameter1' => 'Immunizations',
-      'Parameter2' => '',
-      'Parameter3' => '',
-      'Parameter4' => '',
-      'Parameter5' => '',
-      'Parameter6' => '',
-      'Data' => '' }.to_json
+                     'Appname' => @@appname,
+                     'AppUserID' => user_id,
+                     'PatientID' => patient_id,
+                     'Token' => AllscriptsIntegration.get_security_token,
+                     'Parameter1' => 'Immunizations',
+                     'Parameter2' => '',
+                     'Parameter3' => '',
+                     'Parameter4' => '',
+                     'Parameter5' => '',
+                     'Parameter6' => '',
+                     'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
     response.body
@@ -135,17 +135,17 @@ class AllscriptsIntegration
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' => 'application/json' })
     request.body = { 'Action' => 'GetPatient',
-      'Appname' => @@appname,
-      'AppUserID' => '',
-      'PatientID' => patient_id,
-      'Token' => AllscriptsIntegration.get_security_token,
-      'Parameter1' => 'immunizations',
-      'Parameter2' => '',
-      'Parameter3' => '',
-      'Parameter4' => '',
-      'Parameter5' => '',
-      'Parameter6' => '',
-      'Data' => '' }.to_json
+                     'Appname' => @@appname,
+                     'AppUserID' => '',
+                     'PatientID' => patient_id,
+                     'Token' => AllscriptsIntegration.get_security_token,
+                     'Parameter1' => 'immunizations',
+                     'Parameter2' => '',
+                     'Parameter3' => '',
+                     'Parameter4' => '',
+                     'Parameter5' => '',
+                     'Parameter6' => '',
+                     'Data' => '' }.to_json
     puts request.body
     response = http.request(request)
     response.body

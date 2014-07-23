@@ -33,17 +33,17 @@ Lint/UnusedMethodArgument:
 
 # Offense count: 12
 Lint/UselessAssignment:
-  Enabled: false
+  Enabled: false #FIXME
 
 # Offense count: 3
 Style/AccessorMethodName:
-  Enabled: false
+  Enabled: false #FIXME
 
 # Offense count: 68
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle, SupportedLastArgumentHashStyles.
 Style/AlignHash:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.
@@ -57,7 +57,7 @@ Style/ClassLength:
 
 # Offense count: 4
 Style/ClassVars:
-  Enabled: false
+  Enabled: false #FIXME
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -66,7 +66,7 @@ Style/CommentIndentation:
 
 # Offense count: 50
 Style/Documentation:
-  Enabled: false
+  Enabled: false #FIXME
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -75,7 +75,7 @@ Style/EmptyLines:
 
 # Offense count: 4
 Style/EmptyLinesAroundAccessModifier:
-  Enabled: false
+  Enabled: false #FIXME
 
 # Offense count: 18
 # Cop supports --auto-correct.
@@ -91,7 +91,7 @@ Style/HashSyntax:
 # Offense count: 3
 # Configuration parameters: MaxLineLength.
 Style/IfUnlessModifier:
-  Enabled: false
+  Enabled: false #FIXME
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -127,7 +127,7 @@ Style/MethodLength:
 # Offense count: 5
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/Next:
-  Enabled: false
+  Enabled: false #FIXME
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -152,7 +152,7 @@ Style/RegexpLiteral:
 
 # Offense count: 8
 Style/RescueModifier:
-  Enabled: false
+  Enabled: false #FIXME
 
 # Offense count: 120
 # Cop supports --auto-correct.
