@@ -25,15 +25,15 @@ set :output, Rails.root.join('log', 'cron.log')
 
 # Import new Wikipedia data for the influenza tracker every day
 every 1.day do
-  runner "Influenza.import_latest_wikipedia_data"
+  runner 'Influenza.import_latest_wikipedia_data'
 end
 
 # Run a script to import Unity server data every day
 every 1.day do
-  runner "UnityServer.import_server_info"
+  runner 'UnityServer.import_server_info'
 end
 
 # Run a script to import the provider data every day
 every 1.day do
-  runner "Provider.import_providers"
+  runner 'Provider.import_providers'
 end

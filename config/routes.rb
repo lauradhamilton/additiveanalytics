@@ -14,34 +14,34 @@ Additiveanalytics::Application.routes.draw do
 
   # Static pages
   # For everybody to see
-  get "/" => "static_pages#home"
-  get "/about" => "static_pages#about"
-  get "/contact" => "static_pages#contact"
-  get "/privacy_policy" => "static_pages#privacy_policy"
-  get "/terms" => "static_pages#terms"
+  get'/' => 'static_pages#home'
+  get '/about' => 'static_pages#about'
+  get '/contact' => 'static_pages#contact'
+  get '/privacy_policy' => 'static_pages#privacy_policy'
+  get '/terms' => 'static_pages#terms'
 
   # /solutions folder
   # For everybody to see
-  get "/solutions" => "solutions#list"
-  get "/solutions/custom_analytics" => "solutions#custom_analytics"
-  get "/solutions/hospital_compare" => "solutions#hospital_compare"
-  get "/solutions/maternity" => "solutions#maternity"
-  get "/solutions/readmissions" => "solutions#readmissions"
-  get "/solutions/flu_tracker" => "solutions#flu_tracker"
-  get "/solutions/flu_tracker_data" => "solutions#flu_tracker_data"
-  get "/solutions/treatment_tracker" => "solutions#treatment_tracker"
-  get "/solutions/reduce_readmissions" => "solutions#reduce_readmissions"
-  get "/solutions/compare_prices" => "solutions#compare_prices"
-  get "/solutions/compare_prices_data" => "solutions#compare_prices_data"
-  get "/solutions/nationwide_price_compare" => "solutions#nationwide_price_compare"
-  get "/solutions/nationwide_price_compare_data" => "solutions#nationwide_price_compare_data"
+  get '/solutions' => 'solutions#list'
+  get '/solutions/custom_analytics' => 'solutions#custom_analytics'
+  get '/solutions/hospital_compare' => 'solutions#hospital_compare'
+  get '/solutions/maternity' => 'solutions#maternity'
+  get '/solutions/readmissions' => 'solutions#readmissions'
+  get '/solutions/flu_tracker' => 'solutions#flu_tracker'
+  get '/solutions/flu_tracker_data' => 'solutions#flu_tracker_data'
+  get '/solutions/treatment_tracker' => 'solutions#treatment_tracker'
+  get '/solutions/reduce_readmissions' => 'solutions#reduce_readmissions'
+  get '/solutions/compare_prices' => 'solutions#compare_prices'
+  get '/solutions/compare_prices_data' => 'solutions#compare_prices_data'
+  get '/solutions/nationwide_price_compare' => 'solutions#nationwide_price_compare'
+  get '/solutions/nationwide_price_compare_data' => 'solutions#nationwide_price_compare_data'
 
   # /immunization_tracker
   # Behind a login -- must be a verified provider w/ credentials
-  get "/immunization_tracker/influenza" => "immunization_tracker#influenza"
+  get '/immunization_tracker/influenza' => 'immunization_tracker#influenza'
 
   # Blog (goes to wordpress blog on other server)
-  get "/blog" => redirect("/blog/")
+  get '/blog' => redirect('/blog/')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
