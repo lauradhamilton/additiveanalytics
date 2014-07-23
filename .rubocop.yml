@@ -33,7 +33,7 @@ Lint/UnusedMethodArgument:
 
 # Offense count: 12
 Lint/UselessAssignment:
-  Enabled: false #FIXME
+  Enabled: true
 
 # Offense count: 3
 Style/AccessorMethodName:

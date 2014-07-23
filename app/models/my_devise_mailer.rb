@@ -27,7 +27,7 @@ class MyDeviseMailer < Devise::Mailer
         }
       ]
     }
-    result = mandrill.messages.send_template template_name, template_content, message
+    mandrill.messages.send_template template_name, template_content, message
 
     # We need to call super because Devise doesn't think we have sent any mail
     # FIXME

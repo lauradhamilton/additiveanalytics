@@ -11,7 +11,7 @@ class Influenza < ActiveRecord::Base
   def self.import_wikipedia_data(month)
     uri = URI.parse('http://stats.grok.se/json/en/' + month + '/Influenza')
     http = Net::HTTP.new(uri.host, uri.port)
-    request = Net::HTTP::Get.new(uri.path, initheader = { 'Content-Type' => 'application/json', 'User-Agent' => 'AdditiveAnalytics.com' })
+    request = Net::HTTP::Get.new(uri.path, 'Content-Type' => 'application/json', 'User-Agent' => 'AdditiveAnalytics.com')
     response = http.request(request)
     page_view_hash = JSON.parse(response.body)['daily_views']
 

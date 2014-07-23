@@ -7,7 +7,6 @@ class MedicareCostSummary < ActiveRecord::Base
     cost_summaries.each do |i|
       i[:procedures_count] = (i[:procedures_count]).to_i
     end
-    total_records = MedicareCostSummary.count
-    cost_summary_hash_for_datatables = { 'aaData' => cost_summaries }
+    { 'aaData' => cost_summaries }
   end
 end
