@@ -11,6 +11,7 @@ class ImmunizationTask < ActiveRecord::Base
     create_influenza_tasks
     create_mmr_tasks
     create_varicella_tasks
+    create_human_papillomavirus_tasks
     create_zoster_tasks
     create_meningococcal_tasks
   end
@@ -117,6 +118,41 @@ class ImmunizationTask < ActiveRecord::Base
       new_immunization_task.immunization = 'varicella'
       new_immunization_task.series_number = 2
       unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'varicella', 2)
+        new_immunization_task.save
+      end
+    end
+  end
+
+  def self.create_human_papillomavirus_tasks
+    human_papillomavirus_series_1_patients = Patient.find_patients_needing_first_human_papillomavirus_shot
+    human_papillomavirus_series_1_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'human_papillomavirus'
+      new_immunization_task.series_number = 1
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'human_papillomavirus', 1)
+        new_immunization_task.save
+      end
+    end
+
+    human_papillomavirus_series_2_patients = Patient.find_patients_needing_second_human_papillomavirus_shot
+    human_papillomavirus_series_2_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'human_papillomavirus'
+      new_immunization_task.series_number = 2
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'human_papillomavirus', 2)
+        new_immunization_task.save
+      end
+    end
+
+    human_papillomavirus_series_3_patients = Patient.find_patients_needing_third_human_papillomavirus_shot
+    human_papillomavirus_series_3_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'human_papillomavirus'
+      new_immunization_task.series_number = 3
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'human_papillomavirus', 3)
         new_immunization_task.save
       end
     end

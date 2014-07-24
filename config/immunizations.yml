@@ -62,8 +62,9 @@ varicella:
     - 12
     - 48 # 4 years
 human_papillomavirus:
+  cpt: "'90649', '90650'"
   doses: 3
-  patient_age_in_years:
+  patient_age_in_months:
     - 132 # 11 years old
 meningococcal:
   cpt: "'90644', '90733', '90734'"
