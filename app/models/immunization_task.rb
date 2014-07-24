@@ -144,5 +144,4 @@ class ImmunizationTask < ActiveRecord::Base
       end
     end
   end
-
 end
