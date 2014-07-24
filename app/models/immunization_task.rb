@@ -12,6 +12,7 @@ class ImmunizationTask < ActiveRecord::Base
     create_mmr_tasks
     create_varicella_tasks
     create_human_papillomavirus_tasks
+    create_poliovirus_tasks
     create_zoster_tasks
     create_meningococcal_tasks
   end
@@ -70,6 +71,52 @@ class ImmunizationTask < ActiveRecord::Base
       new_immunization_task.immunization = 'hepatitis_b'
       new_immunization_task.series_number = 3
       unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'hepatitis_b', 3)
+        new_immunization_task.save
+      end
+    end
+  end
+
+  def self.create_poliovirus_tasks
+    poliovirus_series_1_patients = Patient.find_patients_needing_first_poliovirus_shot
+    poliovirus_series_1_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'poliovirus'
+      new_immunization_task.series_number = 1
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'poliovirus', 1)
+        new_immunization_task.save
+      end
+    end
+
+    poliovirus_series_2_patients = Patient.find_patients_needing_second_poliovirus_shot
+    poliovirus_series_2_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'poliovirus'
+      new_immunization_task.series_number = 2
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'poliovirus', 2)
+        new_immunization_task.save
+      end
+    end
+
+    poliovirus_series_3_patients = Patient.find_patients_needing_third_poliovirus_shot
+    poliovirus_series_3_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'poliovirus'
+      new_immunization_task.series_number = 3
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'poliovirus', 3)
+        new_immunization_task.save
+      end
+    end
+
+    poliovirus_series_4_patients = Patient.find_patients_needing_fourth_poliovirus_shot
+    poliovirus_series_4_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'poliovirus'
+      new_immunization_task.series_number = 4
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'poliovirus', 4)
         new_immunization_task.save
       end
     end

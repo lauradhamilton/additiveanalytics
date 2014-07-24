@@ -43,10 +43,12 @@ pneumococcal_conjugate:
     - 12
 pneumococcal_polysaccharide:
 poliovirus:
+  cpt: "'90698', '90712', '90713', '90723'"
   patient_age_in_months:
     - 2
     - 4
     - 6
+    - 48 # Booster dose at 4-6 years
 influenza:
   cpt: "'90654', '90655', '90656', '90657', '90658', '90661', '90662', '90672', '90673', '90685', '90686', '90688', 'Q2033', 'Q2035', 'Q2036', 'Q2037', 'Q2037', 'Q2038'"
   frequency: 'annual'
