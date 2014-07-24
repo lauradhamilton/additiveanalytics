@@ -44,6 +44,9 @@ pneumococcal_conjugate:
     - 6
     - 12
 pneumococcal_polysaccharide:
+  cpt: "'90669', '90670', '90732'"
+  patient_age_in_months:
+    - 780 # Age 65+
 poliovirus:
   cpt: "'90698', '90712', '90713', '90723'"
   patient_age_in_months:

@@ -363,6 +363,15 @@ class Patient < ActiveRecord::Base
         having count(i.id) = 3)"
   end
 
+def self.find_patients_needing_pneumococcal_polysaccharide_shots
+    pneumococcal_polysaccharide_start_age = IMMUNIZATIONS_CONFIG['pneumococcal_polysaccharide']['patient_age_in_months'][0]
+    pneumococcal_polysaccharide_cpt = IMMUNIZATIONS_CONFIG['zoster']['cpt']
+    Patient.find_by_sql "select * from patients p
+      where date_of_birth < current_date - interval '#{pneumococcal_polysaccharide_start_age} months'
+      and not exists (select 1 from immunizations i
+        where i.patient_id = p.patient_id
+          and i.code = '#{pneumococcal_polysaccharide_cpt}')"
+  end
 
   def self.find_patients_needing_first_poliovirus_shot
     poliovirus_cpt = IMMUNIZATIONS_CONFIG['poliovirus']['cpt']

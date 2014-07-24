@@ -15,6 +15,7 @@ class ImmunizationTask < ActiveRecord::Base
     create_dpt_tasks
     create_haemophilus_influenza_tasks
     create_pneumococcal_conjugate_tasks
+    create_pneumococcal_polysaccharide_tasks
     create_poliovirus_tasks
     create_zoster_tasks
     create_meningococcal_tasks
@@ -228,6 +229,17 @@ class ImmunizationTask < ActiveRecord::Base
     end
   end
 
+  def self.create_pneumococcal_polysaccharide_tasks
+    pneumococcal_polysaccharide_patients = Patient.find_patients_needing_pneumococcal_polysaccharide_shots
+    pneumococcal_polysaccharide_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'pneumococcal_polysaccharide'
+      unless ImmunizationTask.find_by_patient_id_and_immunization(new_immunization_task.patient_id, 'pneumococcal_polysaccharide')
+        new_immunization_task.save
+      end
+    end
+  end
 
   def self.create_poliovirus_tasks
     poliovirus_series_1_patients = Patient.find_patients_needing_first_poliovirus_shot
