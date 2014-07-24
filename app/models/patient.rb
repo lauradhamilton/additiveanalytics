@@ -150,6 +150,87 @@ class Patient < ActiveRecord::Base
         and i.code in (#{hepatitis_b_cpt})) < current_date - interval '6 months'"
   end
 
+  def self.find_patients_needing_first_dpt_shot
+    dpt_cpt = IMMUNIZATIONS_CONFIG['diptheria_tetanus_pertussis']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['diptheria_tetanus_pertussis']['patient_age_in_months'][0]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and not exists (select 1
+        from immunizations i
+        where i.patient_id = p.patient_id
+        and i.code in (#{dpt_cpt}))"
+  end
+
+  def self.find_patients_needing_second_dpt_shot
+    dpt_cpt = IMMUNIZATIONS_CONFIG['diptheria_tetanus_pertussis']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['diptheria_tetanus_pertussis']['patient_age_in_months'][1]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{dpt_cpt})
+        group by 1
+        having count(i.id) = 1)"
+  end
+
+  def self.find_patients_needing_third_dpt_shot
+    dpt_cpt = IMMUNIZATIONS_CONFIG['diptheria_tetanus_pertussis']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['diptheria_tetanus_pertussis']['patient_age_in_months'][2]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{dpt_cpt})
+        group by 1
+        having count(i.id) = 2)"
+  end
+
+  def self.find_patients_needing_fourth_dpt_shot
+    dpt_cpt = IMMUNIZATIONS_CONFIG['diptheria_tetanus_pertussis']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['diptheria_tetanus_pertussis']['patient_age_in_months'][3]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{dpt_cpt})
+        group by 1
+        having count(i.id) = 3)"
+  end
+
+  def self.find_patients_needing_fifth_dpt_shot
+    dpt_cpt = IMMUNIZATIONS_CONFIG['diptheria_tetanus_pertussis']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['diptheria_tetanus_pertussis']['patient_age_in_months'][4]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{dpt_cpt})
+        group by 1
+        having count(i.id) = 4)
+      and not exists (select 1 from immunizations i
+        where i.patient_id = p.patient_id
+        and i.code in (#{dpt_cpt})
+        and i.display_date > current_date - interval '10 years')"
+        # Booster after 10 years
+  end
+
   def self.find_patients_needing_first_poliovirus_shot
     poliovirus_cpt = IMMUNIZATIONS_CONFIG['poliovirus']['cpt']
     patient_age = IMMUNIZATIONS_CONFIG['poliovirus']['patient_age_in_months'][0]
