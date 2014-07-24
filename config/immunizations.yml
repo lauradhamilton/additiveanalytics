@@ -37,6 +37,7 @@ haemophilus_influenza:
     - 6
     - 12
 pneumococcal_conjugate:
+  cpt: "'90669', '90670'"
   patient_age_in_months:
     - 2
     - 4

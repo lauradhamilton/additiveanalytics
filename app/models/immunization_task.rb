@@ -14,6 +14,7 @@ class ImmunizationTask < ActiveRecord::Base
     create_human_papillomavirus_tasks
     create_dpt_tasks
     create_haemophilus_influenza_tasks
+    create_pneumococcal_conjugate_tasks
     create_poliovirus_tasks
     create_zoster_tasks
     create_meningococcal_tasks
@@ -180,6 +181,53 @@ class ImmunizationTask < ActiveRecord::Base
       end
     end
   end
+
+  def self.create_pneumococcal_conjugate_tasks
+    pneumococcal_conjugate_series_1_patients = Patient.find_patients_needing_first_pneumococcal_conjugate_shot
+    pneumococcal_conjugate_series_1_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'pneumococcal_conjugate'
+      new_immunization_task.series_number = 1
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'pneumococcal_conjugate', 1)
+        new_immunization_task.save
+      end
+    end
+
+    pneumococcal_conjugate_series_2_patients = Patient.find_patients_needing_second_pneumococcal_conjugate_shot
+    pneumococcal_conjugate_series_2_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'pneumococcal_conjugate'
+      new_immunization_task.series_number = 2
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'pneumococcal_conjugate', 2)
+        new_immunization_task.save
+      end
+    end
+
+    pneumococcal_conjugate_series_3_patients = Patient.find_patients_needing_third_pneumococcal_conjugate_shot
+    pneumococcal_conjugate_series_3_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'pneumococcal_conjugate'
+      new_immunization_task.series_number = 3
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'pneumococcal_conjugate', 3)
+        new_immunization_task.save
+      end
+    end
+
+    pneumococcal_conjugate_series_4_patients = Patient.find_patients_needing_fourth_pneumococcal_conjugate_shot
+    pneumococcal_conjugate_series_4_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'pneumococcal_conjugate'
+      new_immunization_task.series_number = 4
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'pneumococcal_conjugate', 4)
+        new_immunization_task.save
+      end
+    end
+  end
+
 
   def self.create_poliovirus_tasks
     poliovirus_series_1_patients = Patient.find_patients_needing_first_poliovirus_shot

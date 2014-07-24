@@ -303,6 +303,67 @@ class Patient < ActiveRecord::Base
         having count(i.id) = 3)"
   end
 
+  def self.find_patients_needing_first_pneumococcal_conjugate_shot
+    pneumococcal_conjugate_cpt = IMMUNIZATIONS_CONFIG['pneumococcal_conjugate']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['pneumococcal_conjugate']['patient_age_in_months'][0]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and not exists (select 1
+        from immunizations i
+        where i.patient_id = p.patient_id
+        and i.code in (#{pneumococcal_conjugate_cpt}))"
+  end
+
+  def self.find_patients_needing_second_pneumococcal_conjugate_shot
+    pneumococcal_conjugate_cpt = IMMUNIZATIONS_CONFIG['pneumococcal_conjugate']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['pneumococcal_conjugate']['patient_age_in_months'][1]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{pneumococcal_conjugate_cpt})
+        group by 1
+        having count(i.id) = 1)"
+  end
+
+  def self.find_patients_needing_third_pneumococcal_conjugate_shot
+    pneumococcal_conjugate_cpt = IMMUNIZATIONS_CONFIG['pneumococcal_conjugate']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['pneumococcal_conjugate']['patient_age_in_months'][2]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{pneumococcal_conjugate_cpt})
+        group by 1
+        having count(i.id) = 2)"
+  end
+
+  def self.find_patients_needing_fourth_pneumococcal_conjugate_shot
+    pneumococcal_conjugate_cpt = IMMUNIZATIONS_CONFIG['pneumococcal_conjugate']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['pneumococcal_conjugate']['patient_age_in_months'][3]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{pneumococcal_conjugate_cpt})
+        group by 1
+        having count(i.id) = 3)"
+  end
+
+
   def self.find_patients_needing_first_poliovirus_shot
     poliovirus_cpt = IMMUNIZATIONS_CONFIG['poliovirus']['cpt']
     patient_age = IMMUNIZATIONS_CONFIG['poliovirus']['patient_age_in_months'][0]
