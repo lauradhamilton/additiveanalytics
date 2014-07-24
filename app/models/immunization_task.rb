@@ -9,6 +9,7 @@ class ImmunizationTask < ActiveRecord::Base
     create_hepatitis_a_tasks
     create_hepatitis_b_tasks
     create_influenza_tasks
+    create_mmr_tasks
     create_zoster_tasks
     create_meningococcal_tasks
   end
@@ -67,6 +68,30 @@ class ImmunizationTask < ActiveRecord::Base
       new_immunization_task.immunization = 'hepatitis_b'
       new_immunization_task.series_number = 3
       unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'hepatitis_b', 3)
+        new_immunization_task.save
+      end
+    end
+  end
+
+  def self.create_mmr_tasks
+    mmr_series_1_patients = Patient.find_patients_needing_first_mmr_shot
+    mmr_series_1_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'measles_mumps_rubella'
+      new_immunization_task.series_number = 1
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'measles_mumps_rubella', 1)
+        new_immunization_task.save
+      end
+    end
+
+    mmr_series_2_patients = Patient.find_patients_needing_second_mmr_shot
+    mmr_series_2_patients.each do |patient|
+      new_immunization_task = ImmunizationTask.new
+      new_immunization_task.patient_id = patient.patient_id
+      new_immunization_task.immunization = 'measles_mumps_rubella'
+      new_immunization_task.series_number = 2
+      unless ImmunizationTask.find_by_patient_id_and_immunization_and_series_number(new_immunization_task.patient_id, 'measles_mumps_rubella', 2)
         new_immunization_task.save
       end
     end
