@@ -30,6 +30,7 @@ diptheria_tetanus_pertussis:
     - 15
     - 120 # Booster after 10 years
 haemophilus_influenza:
+  cpt: "'90645', '90646', '90647', '90648'"
   patient_age_in_months:
     - 2
     - 4

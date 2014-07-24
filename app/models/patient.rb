@@ -231,6 +231,78 @@ class Patient < ActiveRecord::Base
         # Booster after 10 years
   end
 
+  def self.find_patients_needing_first_haemophilus_influenza_shot
+    haemophilus_influenza_cpt = IMMUNIZATIONS_CONFIG['haemophilus_influenza']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['haemophilus_influenza']['patient_age_in_months'][0]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.date_of_birth > current_date - interval '5 years'
+        -- CDC does not recommend Hib for anyone age 5 years or older
+        -- Unless they are at increased risk for Hib infection
+      and not exists (select 1
+        from immunizations i
+        where i.patient_id = p.patient_id
+        and i.code in (#{haemophilus_influenza_cpt}))"
+  end
+
+  def self.find_patients_needing_second_haemophilus_influenza_shot
+    haemophilus_influenza_cpt = IMMUNIZATIONS_CONFIG['haemophilus_influenza']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['haemophilus_influenza']['patient_age_in_months'][1]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.date_of_birth > current_date - interval '5 years'
+        -- CDC does not recommend Hib for anyone age 5 years or older
+        -- Unless they are at increased risk for Hib infection
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{haemophilus_influenza_cpt})
+        group by 1
+        having count(i.id) = 1)"
+  end
+
+  def self.find_patients_needing_third_haemophilus_influenza_shot
+    haemophilus_influenza_cpt = IMMUNIZATIONS_CONFIG['haemophilus_influenza']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['haemophilus_influenza']['patient_age_in_months'][2]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.date_of_birth > current_date - interval '5 years'
+        -- CDC does not recommend Hib for anyone age 5 years or older
+        -- Unless they are at increased risk for Hib infection
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{haemophilus_influenza_cpt})
+        group by 1
+        having count(i.id) = 2)"
+  end
+
+  def self.find_patients_needing_fourth_haemophilus_influenza_shot
+    haemophilus_influenza_cpt = IMMUNIZATIONS_CONFIG['haemophilus_influenza']['cpt']
+    patient_age = IMMUNIZATIONS_CONFIG['haemophilus_influenza']['patient_age_in_months'][3]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{patient_age} months'
+      and p.date_of_birth > current_date - interval '5 years'
+        -- CDC does not recommend Hib for anyone age 5 years or older
+        -- Unless they are at increased risk for Hib infection
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{haemophilus_influenza_cpt})
+        group by 1
+        having count(i.id) = 3)"
+  end
+
   def self.find_patients_needing_first_poliovirus_shot
     poliovirus_cpt = IMMUNIZATIONS_CONFIG['poliovirus']['cpt']
     patient_age = IMMUNIZATIONS_CONFIG['poliovirus']['patient_age_in_months'][0]
