@@ -197,6 +197,37 @@ class Patient < ActiveRecord::Base
         having count(i.id) = 1)"
   end
 
+  def self.find_patients_needing_first_varicella_shot
+    varicella_cpt = IMMUNIZATIONS_CONFIG['varicella']['cpt']
+    varicella_start_age = IMMUNIZATIONS_CONFIG['varicella']['patient_age_in_months'][0]
+    Patient.find_by_sql "select *
+      from patients p
+      where date_of_birth < current_date - interval '#{varicella_start_age} months'
+      and not exists (select 1 from immunizations i
+        where i.patient_id = p.patient_id
+          and i.code in (#{varicella_cpt}))"
+  end
+
+  def self.find_patients_needing_second_varicella_shot
+    varicella_cpt = IMMUNIZATIONS_CONFIG['varicella']['cpt']
+    varicella_start_age = IMMUNIZATIONS_CONFIG['varicella']['patient_age_in_months'][1]
+    Patient.find_by_sql "select *
+      from patients p
+      where p.date_of_birth < current_date - interval '#{varicella_start_age} months'
+      and p.id in (
+        select
+        p.id
+        from patients p
+        inner join immunizations i on i.patient_id = i.patient_id
+          and i.code in (#{varicella_cpt})
+        group by 1
+        having count(i.id) = 1)
+      and not exists (select 1 from immunizations i
+        where i.patient_id = p.patient_id
+        and i.code in (#{varicella_cpt})
+        and i.display_date > current_date - interval '3 months')"
+  end
+
   def self.find_patients_needing_first_meningococcal_shot
     meningococcal_cpt = IMMUNIZATIONS_CONFIG['meningococcal']['cpt']
     meningococcal_start_age = IMMUNIZATIONS_CONFIG['meningococcal']['patient_age_in_months'][0]

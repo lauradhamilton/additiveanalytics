@@ -56,6 +56,7 @@ measles_mumps_rubella:
     - 12
     - 48 # 4 years
 varicella:
+  cpt: "'90710', '90716'"
   doses: 2
   patient_age_in_months:
     - 12
