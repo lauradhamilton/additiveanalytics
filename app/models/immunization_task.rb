@@ -5,6 +5,15 @@ class ImmunizationTask < ActiveRecord::Base
 
   validates_uniqueness_of :immunization, scope: [:patient_id]
 
+  filterrific(
+    default_settings: { sorted_by: 'created_at_desc' },
+    filter_names: [
+      :immunization,
+      :series
+    ]
+  )
+  # define ActiveRecord scopes
+
   def self.create_all_immunization_tasks
     create_hepatitis_a_tasks
     create_hepatitis_b_tasks

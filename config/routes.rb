@@ -1,6 +1,7 @@
 Additiveanalytics::Application.routes.draw do
 
   devise_for :users
+
   resources :unity_servers
 
   resources :states
@@ -38,7 +39,7 @@ Additiveanalytics::Application.routes.draw do
 
   # /immunization_tracker
   # Behind a login -- must be a verified provider w/ credentials
-  get '/immunization_tracker/influenza' => 'immunization_tracker#influenza'
+  get '/immunization_tracker' => 'immunization_tracker#index'
 
   # Blog (goes to wordpress blog on other server)
   get '/blog' => redirect('/blog/')

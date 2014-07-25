@@ -6,7 +6,11 @@ EMAIL_CONFIGS = YAML.load_file("#{Rails.root}/config/email.yml")
 
 # Override the standard devise mailer to use pretty templates in Mandrill
 class MyDeviseMailer < Devise::Mailer
-  def confirmation_instructions(record, _token, _opts={})
+  helper :application # gives access to all helpers defined within `application_helper`.
+  include Devise::Controllers::UrlHelpers # Optional. eg. `confirmation_url`
+
+  def confirmation_instructions(record, token, opts={})
+    @token = token
     mandrill = Mandrill::API.new('OuvLfBflxCH7OtBRfygNuQ')
     template_content = [{ 'content' => 'example content', 'name' => 'example name' }]
     template_name = 'provider-sign-up'
@@ -21,7 +25,7 @@ class MyDeviseMailer < Devise::Mailer
           'vars' => [
             {
               'name' => 'CONFIRMATION_URL',
-              'content' => "<a href='#{user_confirmation_url(confirmation_token: record.confirmation_token)}'>Confirm my email</a>"
+              'content' => "<a href='#{confirmation_url(record, :confirmation_token => @token)}'>Confirm my email</a>"
             }
           ]
         }

@@ -7,24 +7,13 @@ class ImmunizationTrackerController < ApplicationController
   def list
   end
 
-  def influenza
-    # Generate an HTML table w/ patients needing influenza vaccines
-    @result = Patient.find_patients_needing_influenza_shots
-    data = []
-    @result.each do |row|
-      # Display the phone numbers all pretty, with hyphens
-      row['phone_number'] = number_to_phone(row['phone_number'], area_code: true)
-      row['work_phone'] = number_to_phone(row['work_phone'], area_code: true)
-      row['cell_phone'] = number_to_phone(row['cell_phone'], area_code: true)
-      data << row
+  def index
+    @filterrific = Filterrific.new(ImmunizationTask, params[:filterrific])
+    @immunization_tasks = ImmunizationTask.filterrific_find(@filterrific).page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
     end
-    headers = ['Patient ID', 'Gender', 'First', 'Last', 'Email', 'Home Phone', 'Work Phone', 'Cell Phone']
-    cells = data.map do |datum|
-      "<tr><td>#{datum.values.join('</td><td>')}</td></tr>"
-    end.join("\n ")
-    table = %(<table class="table table-striped">
-      <tr><th>#{headers.join('</th><th>')}</th></tr>
-      #{cells}</table>)
-    @display_patients_needing_influenza_shots = table
   end
 end
