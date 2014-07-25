@@ -435,7 +435,7 @@ class Patient < ActiveRecord::Base
       and not exists (select 1 from immunizations i
         where i.patient_id = p.patient_id
           and i.code in (#{pneumococcal_polysaccharide_cpt}))"
-    end
+  end
 
   def self.find_patients_needing_first_poliovirus_shot
     poliovirus_cpt = IMMUNIZATIONS_CONFIG['poliovirus']['cpt']
