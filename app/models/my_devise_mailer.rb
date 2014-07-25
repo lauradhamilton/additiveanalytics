@@ -9,7 +9,7 @@ class MyDeviseMailer < Devise::Mailer
   helper :application # gives access to all helpers defined within `application_helper`.
   include Devise::Controllers::UrlHelpers # Optional. eg. `confirmation_url`
 
-  def confirmation_instructions(record, token, opts={})
+  def confirmation_instructions(record, token, _opts={})
     @token = token
     mandrill = Mandrill::API.new('OuvLfBflxCH7OtBRfygNuQ')
     template_content = [{ 'content' => 'example content', 'name' => 'example name' }]
@@ -25,7 +25,7 @@ class MyDeviseMailer < Devise::Mailer
           'vars' => [
             {
               'name' => 'CONFIRMATION_URL',
-              'content' => "<a href='#{confirmation_url(record, :confirmation_token => @token)}'>Confirm my email</a>"
+              'content' => "<a href='#{confirmation_url(record, confirmation_token: @token)}'>Confirm my email</a>"
             }
           ]
         }

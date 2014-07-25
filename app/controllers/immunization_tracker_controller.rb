@@ -9,11 +9,24 @@ class ImmunizationTrackerController < ApplicationController
 
   def index
     @filterrific = Filterrific.new(ImmunizationTask, params[:filterrific])
-    @immunization_tasks = ImmunizationTask.filterrific_find(@filterrific).page(params[:page])
+
+    @filterrific.select_options = {
+      sorted_by: ImmunizationTask.options_for_sorted_by,
+      with_immunization: ImmunizationTask.options_for_select
+    }
+
+    # @immunization_tasks = ImmunizationTask.filterrific_find(@filterrific).page(params[:page])
 
     respond_to do |format|
       format.html
       format.js
     end
+  end
+
+  def reset_filterrific
+    # Clear session persistence
+    session[:filterrific_immunization_tasks] = nil
+    # Redirect back to the index action for default filter settings.
+    redirect_to action: :index
   end
 end

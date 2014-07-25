@@ -1,4 +1,5 @@
 require 'rails'
+require 'filterrific'
 
 class ImmunizationTask < ActiveRecord::Base
   belongs_to :patient, foreign_key: 'patient_id'
@@ -8,11 +9,34 @@ class ImmunizationTask < ActiveRecord::Base
   filterrific(
     default_settings: { sorted_by: 'created_at_desc' },
     filter_names: [
-      :immunization,
-      :series
+      :sorted_by,
+      :search_query,
+      :with_immunization,
+      :with_series
     ]
   )
-  # define ActiveRecord scopes
+
+  scope :search_query, lambda { |_query|
+  }
+
+  scope :sorted_by, lambda { |_sort_key|
+  }
+
+  scope :with_immunization, lambda { |_immunizations|
+  }
+
+  scope :with_series, lambda { |_series|
+  }
+
+  def self.options_for_sorted_by
+    [
+      ['Generated On', 'created_at_desc']
+    ]
+  end
+
+  def self.options_for_select
+    order('immunization')
+  end
 
   def self.create_all_immunization_tasks
     create_hepatitis_a_tasks

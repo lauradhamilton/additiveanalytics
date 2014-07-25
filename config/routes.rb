@@ -1,5 +1,7 @@
 Additiveanalytics::Application.routes.draw do
 
+  root to: 'static_pages#home'
+
   devise_for :users
 
   resources :unity_servers
@@ -40,6 +42,10 @@ Additiveanalytics::Application.routes.draw do
   # /immunization_tracker
   # Behind a login -- must be a verified provider w/ credentials
   get '/immunization_tracker' => 'immunization_tracker#index'
+
+  resources :immunization_tasks do
+    get :reset_filterrific, on: :collection
+  end
 
   # Blog (goes to wordpress blog on other server)
   get '/blog' => redirect('/blog/')
