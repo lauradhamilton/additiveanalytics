@@ -19,13 +19,12 @@
     ) %>
   </div>
   <div>
-    Country
+    Immunization
     <%= f.select(
       :with_immunization,
       @filterrific.select_options[:with_immunization],
       { include_blank: '- Any -' }
     ) %>
-    <%# See below for the Country.options_for_select presenter method %>
   </div>
   <div>
     Sorted by

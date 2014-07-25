@@ -1,1 +1,23 @@
+<%# app/views/immunization_tracker/_list.html.erb %>
+<div id="filterrific_results">
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Country</th>
+      <th>Registered at</th>
+    </tr>
+    <% immunization_tasks.each do |immunization_task| %>
+      <tr>
+        <td>Good datum</td>
+        <td><%= immunization_task.created_at %></td>
+        <td><%= immunization_task.immunization %></td>
+        <td><%= immunization_task.series_number %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
+
 Hello World!

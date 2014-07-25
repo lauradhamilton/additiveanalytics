@@ -12,20 +12,24 @@ class ImmunizationTask < ActiveRecord::Base
       :sorted_by,
       :search_query,
       :with_immunization,
-      :with_series
+      :with_series_number
     ]
   )
 
-  scope :search_query, lambda { |_query|
+  scope :search_query, lambda { |query|
   }
 
-  scope :sorted_by, lambda { |_sort_key|
+  scope :sorted_by, lambda { |sort_key|
   }
 
-  scope :with_immunization, lambda { |_immunizations|
+  # Filters on 'immunization' attribute
+  scope :with_immunization, lambda { |immunizations|
+    where(immunization: [*immunizations])
   }
 
-  scope :with_series, lambda { |_series|
+  # Filters on 'series' attribute
+  scope :with_series_number, lambda { |series_numbers|
+    where(series_number: [*series_numbers])
   }
 
   def self.options_for_sorted_by
