@@ -115,7 +115,7 @@ class ImmunizationTask < ActiveRecord::Base
       end
     end
 
-  rotateq_series_3_patients = Patient.find_patients_needing_third_rotateq_shot
+    rotateq_series_3_patients = Patient.find_patients_needing_third_rotateq_shot
     rotateq_series_3_patients.each do |patient|
       new_immunization_task = ImmunizationTask.new
       new_immunization_task.patient_id = patient.patient_id

@@ -292,7 +292,7 @@ class Patient < ActiveRecord::Base
         where i.patient_id = p.patient_id
         and i.code in (#{dpt_cpt})
         and i.display_date > current_date - interval '10 years')"
-        # Booster after 10 years
+    # Booster after 10 years
   end
 
   def self.find_patients_needing_first_haemophilus_influenza_shot
@@ -427,7 +427,7 @@ class Patient < ActiveRecord::Base
         having count(i.id) = 3)"
   end
 
-def self.find_patients_needing_pneumococcal_polysaccharide_shots
+  def self.find_patients_needing_pneumococcal_polysaccharide_shots
     pneumococcal_polysaccharide_start_age = IMMUNIZATIONS_CONFIG['pneumococcal_polysaccharide']['patient_age_in_months'][0]
     pneumococcal_polysaccharide_cpt = IMMUNIZATIONS_CONFIG['pneumococcal_polysaccharide']['cpt']
     Patient.find_by_sql "select * from patients p
@@ -435,7 +435,7 @@ def self.find_patients_needing_pneumococcal_polysaccharide_shots
       and not exists (select 1 from immunizations i
         where i.patient_id = p.patient_id
           and i.code in (#{pneumococcal_polysaccharide_cpt}))"
-  end
+    end
 
   def self.find_patients_needing_first_poliovirus_shot
     poliovirus_cpt = IMMUNIZATIONS_CONFIG['poliovirus']['cpt']
