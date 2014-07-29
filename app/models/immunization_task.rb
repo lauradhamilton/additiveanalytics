@@ -34,7 +34,9 @@ class ImmunizationTask < ActiveRecord::Base
 
   def self.options_for_sorted_by
     [
-      ['Generated On', 'created_at_desc']
+      ['Task Created On', 'created_at_desc'],
+      ['Immunization', 'immunization'],
+      ['Series Number', 'series_Number']
     ]
   end
 
