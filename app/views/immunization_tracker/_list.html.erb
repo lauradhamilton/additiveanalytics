@@ -1,23 +1,29 @@
 <%# app/views/immunization_tracker/_list.html.erb %>
 <div id="filterrific_results">
 
-  <table>
+  <table class="table table-striped" style="border-spacing: 5px">
     <tr>
+      <th>Patient ID</th>
       <th>Name</th>
       <th>Email</th>
-      <th>Country</th>
-      <th>Registered at</th>
+      <th>Home Phone</th>
+      <th>Cell Phone</th>
+      <th>Immunization Needed</th>
+      <th>Series Number</th>
+      <th>Task Created at</th>
     </tr>
     <% immunization_tasks.each do |immunization_task| %>
       <tr>
-        <td>Good datum</td>
-        <td><%= immunization_task.created_at %></td>
+        <td><%= immunization_task.patient_id %></td>
+        <td><%= Patient.find_by_patient_id(immunization_task.patient_id).patient_name%></td>
+        <td><%= Patient.find_by_patient_id(immunization_task.patient_id).email %></td>
+        <td><%= number_to_phone(Patient.find_by_patient_id(immunization_task.patient_id).phone_number) %></td>
+        <td><%= number_to_phone(Patient.find_by_patient_id(immunization_task.patient_id).cell_phone) %> </td>
         <td><%= immunization_task.immunization %></td>
         <td><%= immunization_task.series_number %></td>
+        <td><%= immunization_task.created_at.to_date %></td>
       </tr>
     <% end %>
   </table>
 
 </div>
-
-Hello World!

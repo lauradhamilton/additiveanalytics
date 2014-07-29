@@ -1,5 +1,4 @@
 require 'rails'
-require 'adroit-age'
 
 class Patient < ActiveRecord::Base
   has_many :immunizations, primary_key: 'patient_id'
@@ -7,6 +6,10 @@ class Patient < ActiveRecord::Base
 
   # Don't save empty strings. Store them as null values in the db.
   nilify_blanks
+
+  def patient_name
+    first_name + ' ' + last_name
+  end
 
   def self.find_patients_to_import
     changed_patients_hash = JSON[AllscriptsIntegration.get_changed_patients][0]['getchangedpatientsinfo']
