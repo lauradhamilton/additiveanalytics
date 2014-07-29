@@ -2,7 +2,7 @@ require 'builder'
 require 'will_paginate'
 include ActionView::Helpers::NumberHelper
 
-class ImmunizationTrackerController < ApplicationController
+class ImmunizationTasksController < ApplicationController
   before_action :authenticate_user!
 
   def list

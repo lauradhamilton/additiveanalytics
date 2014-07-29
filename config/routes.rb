@@ -41,7 +41,7 @@ Additiveanalytics::Application.routes.draw do
 
   # /immunization_tracker
   # Behind a login -- must be a verified provider w/ credentials
-  get '/immunization_tracker' => 'immunization_tracker#index'
+  get '/immunization_tasks' => 'immunization_tasks#index'
 
   resources :immunization_tasks do
     get :reset_filterrific, on: :collection
