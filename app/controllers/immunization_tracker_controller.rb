@@ -1,4 +1,5 @@
 require 'builder'
+require 'will_paginate'
 include ActionView::Helpers::NumberHelper
 
 class ImmunizationTrackerController < ApplicationController
@@ -15,7 +16,7 @@ class ImmunizationTrackerController < ApplicationController
       with_immunization: ImmunizationTask.options_for_select
     }
 
-    @immunization_tasks = ImmunizationTask.filterrific_find(@filterrific)
+    @immunization_tasks = ImmunizationTask.filterrific_find(@filterrific).page(params[:page])
 
     respond_to do |format|
       format.html

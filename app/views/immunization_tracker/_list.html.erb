@@ -1,6 +1,8 @@
 <%# app/views/immunization_tracker/_list.html.erb %>
 <div id="filterrific_results">
 
+  <%= page_entries_info immunization_tasks%>
+
   <table class="table table-striped" style="border-spacing: 5px">
     <tr>
       <th>Patient ID</th>
@@ -26,4 +28,7 @@
     <% end %>
   </table>
 
+  <%= will_paginate immunization_tasks %>
+
 </div>
+

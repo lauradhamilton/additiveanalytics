@@ -60,6 +60,9 @@ gem 'devise'
 # Filter ActiveRecord models
 gem 'filterrific'
 
+# Pagination
+gem 'will_paginate'
+
 # Transactional emails
 gem 'mandrill-api'
 
