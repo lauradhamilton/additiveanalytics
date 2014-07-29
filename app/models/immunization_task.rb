@@ -36,12 +36,12 @@ class ImmunizationTask < ActiveRecord::Base
     [
       ['Task Created On', 'created_at_desc'],
       ['Immunization', 'immunization'],
-      ['Series Number', 'series_Number']
+      ['Series Number', 'series_number']
     ]
   end
 
   def self.options_for_select
-    order('immunization')
+    order('immunization').map{|i| i.immunization}.uniq
   end
 
   def self.create_all_immunization_tasks
