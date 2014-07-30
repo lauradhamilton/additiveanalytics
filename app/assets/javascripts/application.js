@@ -13,6 +13,7 @@
 //= require d3
 //= require jquery
 //= require jquery_ujs
+//= require filterrific-jquery
 //= require dataTables/jquery.dataTables
 //= require jquery.dataTables.columnFilter
 //= require d3
