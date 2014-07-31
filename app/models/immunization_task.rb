@@ -12,7 +12,7 @@ class ImmunizationTask < ActiveRecord::Base
       :sorted_by,
       :search_query,
       :with_series_followup,
-      :with_immunization,
+      :with_last_immunization_on,
       :with_influenza,
       :with_hepatitis_a,
       :with_hepatitis_b,
@@ -40,12 +40,12 @@ class ImmunizationTask < ActiveRecord::Base
   # Filter for series 2+ only
   scope :with_series_followup, lambda { |flag|
     return nil if 0 == flag
-    where(series_number: [2,3,4,5])
+    where('series_number >=?', 2)
   }
 
-  # Filters on 'immunization' attribute
-  scope :with_immunization, lambda { |immunizations|
-    where(immunization: [*immunizations])
+  scope :with_last_immunization_on, lambda { |reference_time|
+    where(
+      'Exists (SELECT 1 from immunizations i where i.patient_id = immunization_tasks.patient_id and i.display_date > ? )', reference_time)
   }
 
   # Influenza checkbox

@@ -18,6 +18,7 @@
       class: 'filterrific-periodically-observed'
     ) %>
   </div>
+    Patients last immunized after: <%= f.text_field(:with_last_immunization_on) %>
   <div>
     <%= f.check_box :with_series_followup %>Only series follow-up vaccines
   </div>
