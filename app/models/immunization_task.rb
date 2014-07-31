@@ -12,6 +12,7 @@ class ImmunizationTask < ActiveRecord::Base
       :sorted_by,
       :search_query,
       :with_immunization,
+      :with_influenza,
       :with_series_number
     ]
   )
@@ -25,6 +26,12 @@ class ImmunizationTask < ActiveRecord::Base
   # Filters on 'immunization' attribute
   scope :with_immunization, lambda { |immunizations|
     where(immunization: [*immunizations])
+  }
+
+  # Influenza checkbox
+  scope :with_influenza, lambda { |flag|
+    return nil if 0 == flag # checkbox unchecked
+    where(immunization: 'influenza')
   }
 
   # Filters on 'series' attribute

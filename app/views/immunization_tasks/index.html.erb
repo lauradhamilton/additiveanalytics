@@ -26,6 +26,7 @@
       { include_blank: '- Any -' }
     ) %>
   </div>
+  <%= f.check_box :with_influenza %>Influenza
   <div>
     Sorted by
     <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
