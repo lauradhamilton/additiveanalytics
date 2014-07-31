@@ -25,25 +25,17 @@
   <div>
     <%= f.check_box :with_series_followup %>Only series follow-up vaccines
   </div>
+
   <div>
-    <h3>Select Immunizations:</h3>
-    <div class="row">
-      <div class="col-md-2"><%= f.check_box :with_influenza %>Influenza</div>
-      <div class="col-md-2"><%= f.check_box :with_hepatitis_a %>Hepatitis A</div>
-      <div class="col-md-2"><%= f.check_box :with_hepatitis_b %>Hepatitis B</div>
-      <div class="col-md-2"><%= f.check_box :with_rotavirus %>Rotavirus</div>
-      <div class="col-md-2"><%= f.check_box :with_varicella %>Varicella</div>
-      <div class="col-md-2"><%= f.check_box :with_zoster %>Zoster</div>
-      <div class="col-md-2"><%= f.check_box :with_diptheria_tetanus_pertussis %>Diptheria, Tetanus, Pertussis</div>
-      <div class="col-md-2"><%= f.check_box :with_haemophilus_influenza %>Haemophilus Influenza</div>
-      <div class="col-md-2"><%= f.check_box :with_pneumococcal_conjugate %>Pneumococcal Conjugate</div>
-      <div class="col-md-2"><%= f.check_box :with_pneumococcal_polysaccharide %>Pneumococcal Polysaccharide</div>
-      <div class="col-md-2"><%= f.check_box :with_poliovirus %>Poliovirus</div>
-      <div class="col-md-2"><%= f.check_box :with_measles_mumps_rubella %>Measles, Mumps, Rubella</div>
-      <div class="col-md-2"><%= f.check_box :with_human_papillomavirus %>Human Papillomavirus</div>
-      <div class="col-md-2"><%= f.check_box :with_meningococcal %>Meningococcal</div>
-    </div>
-  <div>
+  Immunizations:
+    <%= f.select(
+      :with_immunization,
+      @filterrific.select_options[:with_immunization],
+      { include_blank: false },
+      { multiple: true},
+  ) %>
+  </div>
+
   <div>
     Sorted by
     <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
