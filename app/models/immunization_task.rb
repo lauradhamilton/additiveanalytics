@@ -11,6 +11,7 @@ class ImmunizationTask < ActiveRecord::Base
     filter_names: [
       :sorted_by,
       :search_query,
+      :with_series_followup,
       :with_immunization,
       :with_influenza,
       :with_hepatitis_a,
@@ -34,6 +35,12 @@ class ImmunizationTask < ActiveRecord::Base
   }
 
   scope :sorted_by, lambda { |sort_key|
+  }
+
+  # Filter for series 2+ only
+  scope :with_series_followup, lambda { |flag|
+    return nil if 0 == flag
+    where(series_number: [2,3,4,5])
   }
 
   # Filters on 'immunization' attribute

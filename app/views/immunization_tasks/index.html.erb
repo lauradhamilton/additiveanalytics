@@ -19,13 +19,9 @@
     ) %>
   </div>
   <div>
-    Immunization
-    <%= f.select(
-      :with_immunization,
-      @filterrific.select_options[:with_immunization],
-      { include_blank: '- Any -' }
-    ) %>
+    <%= f.check_box :with_series_followup %>Only series follow-up vaccines
   </div>
+  <div>
   <%= f.check_box :with_influenza %>Influenza
   <%= f.check_box :with_hepatitis_a %>Hepatitis A
   <%= f.check_box :with_hepatitis_b %>Hepatitis B
