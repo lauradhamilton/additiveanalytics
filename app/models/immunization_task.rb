@@ -13,6 +13,19 @@ class ImmunizationTask < ActiveRecord::Base
       :search_query,
       :with_immunization,
       :with_influenza,
+      :with_hepatitis_a,
+      :with_hepatitis_b,
+      :with_rotavirus,
+      :with_diptheria_tetanus_pertussis,
+      :with_haemophilus_influenza,
+      :with_pneumococcal_conjugate,
+      :with_pneumococcal_polysaccharide,
+      :with_poliovirus,
+      :with_measles_mumps_rubella,
+      :with_varicella,
+      :with_human_papillomavirus,
+      :with_meningococcal,
+      :with_zoster,
       :with_series_number
     ]
   )
@@ -32,6 +45,84 @@ class ImmunizationTask < ActiveRecord::Base
   scope :with_influenza, lambda { |flag|
     return nil if 0 == flag # checkbox unchecked
     where(immunization: 'influenza')
+  }
+
+  # Hepatitis a checkbox
+  scope :with_hepatitis_a, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'hepatitis_a')
+  }
+
+  # Hepatitis b checkbox
+  scope :with_hepatitis_b, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'hepatitis_b')
+  }
+
+  # Rotavirus checkbox
+  scope :with_rotavirus, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'rotavirus')
+  }
+
+  # DPT checkbox
+  scope :with_diptheria_tetanus_pertussis, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'diptheria_tetanus_pertussis')
+  }
+
+  # Haemophilus influenza checkbox
+  scope :with_haemophilus_influenza, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'haemophilus_influenza')
+  }
+
+  # Pneumococcal conjugate checkbox
+  scope :with_pneumococcal_conjugate, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'pneumococcal_conjugate')
+  }
+
+  # Pneumococcal polysaccharide checkbox
+  scope :with_pneumococcal_polysaccharide, lambda { | flag|
+    return nil if 0 == flag
+    where(immunization: 'pneumococcal_polysaccharide')
+  }
+
+  # Poliovirus
+  scope :with_poliovirus, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'poliovirus')
+  }
+
+  # MMR
+  scope :with_measles_mumps_rubella, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'measles_mumps_rubella')
+  }
+
+  # Varicella
+  scope :with_varicella, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'varicella')
+  }
+
+  # Human papillomavirus
+  scope :with_human_papillomavirus, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'human_papillomavirus')
+  }
+
+  # Meningococcal
+  scope :with_meningococcal, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'meningococcal')
+  }
+
+  # Zoster
+  scope :with_zoster, lambda { |flag|
+    return nil if 0 == flag
+    where(immunization: 'zoster')
   }
 
   # Filters on 'series' attribute
