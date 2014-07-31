@@ -15,6 +15,9 @@ gem 'coffee-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Use pretty calendar for datepicker
+gem 'bootstrap-datepicker-rails'
+
 # Use datatables to dynamically filter data
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 # jquery-datatables-rails depends on sass-rails
