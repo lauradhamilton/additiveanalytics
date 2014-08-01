@@ -78,6 +78,9 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise_zxcvbn (1.1.1)
+      devise
+      zxcvbn-ruby (>= 0.0.2)
     erubis (2.7.0)
     excon (0.38.0)
     execjs (2.0.2)
@@ -201,6 +204,7 @@ GEM
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
     will_paginate (3.0.7)
+    zxcvbn-ruby (0.0.2)
 
 PLATFORMS
   ruby
@@ -212,6 +216,7 @@ DEPENDENCIES
   coffee-rails
   d3_rails
   devise
+  devise_zxcvbn
   filterrific
   font-awesome-rails
   jquery-datatables-rails!

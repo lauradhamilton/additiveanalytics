@@ -144,6 +144,9 @@ Devise.setup do |config|
   # Changed the minimum password from 8 characters to 12 because HIPAA
   config.password_length = 12..128
 
+  # ==> Configuration for zxcvbn
+  config.min_password_score = 4
+
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.

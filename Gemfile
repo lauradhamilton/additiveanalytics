@@ -60,6 +60,9 @@ gem 'whenever', :require => false
 # Authentication & login
 gem 'devise'
 
+# Reject weak passwords
+gem 'devise_zxcvbn'
+
 # Filter ActiveRecord models
 gem 'filterrific'
 
