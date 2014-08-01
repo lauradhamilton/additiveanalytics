@@ -12,5 +12,7 @@ class ImmunizationTaskStatusesController < ApplicationController
     @immunization_task_status.status = "close"
 
     @immunization_task_status.save!
+
+    redirect_to '/immunization_tasks', action:'index' 
   end
 end
