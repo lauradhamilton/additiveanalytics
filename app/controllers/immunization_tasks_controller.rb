@@ -16,7 +16,7 @@ class ImmunizationTasksController < ApplicationController
       with_immunization: ImmunizationTask.options_for_select
     }
 
-    @immunization_tasks = ImmunizationTask.filterrific_find(@filterrific).page(params[:page])
+    @immunization_tasks = ImmunizationTask.filterrific_find(@filterrific).page(params[:page]).with_immunization_task_statuses
 
     respond_to do |format|
       format.html

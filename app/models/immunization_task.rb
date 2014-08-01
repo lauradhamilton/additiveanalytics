@@ -46,6 +46,10 @@ class ImmunizationTask < ActiveRecord::Base
     where(series_number: [*series_numbers])
   }
 
+  # Exclude immunizations that should be hidden
+  scope :with_immunization_task_statuses, -> {where.not(:id => ImmunizationTaskStatus.select(:immunization_task_id).uniq) 
+  }
+
   def self.options_for_sorted_by
     [
       ['Task Created On', 'created_at_desc'],
