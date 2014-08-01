@@ -4,6 +4,8 @@ require 'filterrific'
 class ImmunizationTask < ActiveRecord::Base
   belongs_to :patient, foreign_key: 'patient_id'
 
+  has_many :immunization_task_statuses
+
   validates_uniqueness_of :immunization, scope: [:patient_id]
 
   filterrific(

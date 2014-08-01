@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
          :zxcvbnable #Enforce minimum password strength
 
   # This is providers who are allowed to access the patient data
+
+  has_many :immunization_task_statuses
 end

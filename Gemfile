@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.1.0"
 
-gem 'rails', '~> 4.0.3'
+gem 'rails'
 gem 'pg'
 gem 'less-rails-bootstrap'
 gem 'therubyracer' #LESS needs this
