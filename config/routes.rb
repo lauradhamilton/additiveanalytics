@@ -10,6 +10,8 @@ Additiveanalytics::Application.routes.draw do
 
   resources :providers
 
+  resources :immunization_task_statuses
+
   resources :medicare_costs
 
   # Transactional emails with Mandrill

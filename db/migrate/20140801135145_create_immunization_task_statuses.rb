@@ -9,7 +9,7 @@ class CreateImmunizationTaskStatuses < ActiveRecord::Migration
       ALTER TABLE immunization_task_statuses
         ADD CONSTRAINT fk_immunization_task_statuses_immunization_tasks
         FOREIGN KEY (immunization_task_id)
-        REFERENCES immunizations(id)
+        REFERENCES immunization_tasks(id)
     SQL
     execute <<-SQL
       ALTER TABLE immunization_task_statuses
@@ -20,6 +20,6 @@ class CreateImmunizationTaskStatuses < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table immunization_task_statuses
+    drop_table :immunization_task_statuses
   end
 end

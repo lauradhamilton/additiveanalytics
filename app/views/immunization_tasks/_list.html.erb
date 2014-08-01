@@ -16,6 +16,7 @@
     </tr>
     <% immunization_tasks.each do |immunization_task| %>
       <tr>
+        <td><%= link_to "Delete", {controller: 'immunization_task_statuses',  action: "create", user_id: current_user.id, immunization_task_id: immunization_task.id, status: ":close"}, method: :post %>
         <td><%= immunization_task.patient_id %></td>
         <td><%= Patient.find_by_patient_id(immunization_task.patient_id).patient_name%></td>
         <td><%= Patient.find_by_patient_id(immunization_task.patient_id).email %></td>
