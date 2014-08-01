@@ -58,6 +58,14 @@ class ImmunizationTask < ActiveRecord::Base
     order('immunization').map{|i| i.immunization}.uniq
   end
 
+  def hide_immunization_task?
+    if self.immunization_task_statuses.exists?
+      return true
+    else
+      return false
+    end
+  end
+
   def self.create_all_immunization_tasks
     create_hepatitis_a_tasks
     create_hepatitis_b_tasks
