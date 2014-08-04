@@ -27,13 +27,15 @@
   </div>
 
   <div>
-  Immunizations:
-    <%= f.select(
-      :with_immunization,
-      @filterrific.select_options[:with_immunization],
-      { include_blank: false },
-      { multiple: true},
-  ) %>
+    <h3>Select Immunizations:</h3>
+    <div class="row">
+      <% @filterrific.select_options[:with_immunization].each do |i| %>
+        <div class="col-md-4">
+          <%= check_box_tag("filterrific[with_immunization]",i) %>
+          <%=h i %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <div>
