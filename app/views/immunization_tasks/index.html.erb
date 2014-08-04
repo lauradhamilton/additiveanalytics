@@ -31,7 +31,7 @@
     <div class="row">
       <% @filterrific.select_options[:with_immunization].each do |i| %>
         <div class="col-md-4">
-          <%= check_box_tag("filterrific[with_immunization]",i) %>
+          <%= check_box_tag("filterrific[with_immunization][]",i) %>
           <%=h i %>
         </div>
       <% end %>
