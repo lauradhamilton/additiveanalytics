@@ -6,4 +6,10 @@ en:
           attributes:
             password:
               weak_password: "not strong enough. Consider adding a number, symbols or more letters to make it stronger"
+  devise:
+    registrations:
+      user:
+        signed_up_but_not_approved: "You have signed up successfully but your account has not been approved by your administrator yet."
+    failure:
+      not_approved: 'Your account has not been approved by your administrator yet.'
 
