@@ -20,7 +20,8 @@
   </div>
   <div>
     Patients last immunized after: 
-      <%= f.date_select :with_last_immunization_on %>
+      <%= f.select(:with_last_immunization_on, Time.now.year.downto(1980).to_a,
+        {include_blank: true} ) %>
   </div>
   <div>
     <%= f.check_box :with_series_followup %>Only series follow-up vaccines
@@ -54,3 +55,12 @@
 <% end %>
 
 <%= render(partial: 'immunization_tasks/list', locals: { immunization_tasks: @immunization_tasks }) %>
+
+:javascript
+  $(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker();
+  })
+  $('.js-datepicker').datepicker();
+  $('#overlayTrigger').click(function(event) {
+    event.preventDefault();
+});

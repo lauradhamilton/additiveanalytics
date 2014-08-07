@@ -31,9 +31,9 @@ class ImmunizationTask < ActiveRecord::Base
     where('series_number >=?', 2)
   }
 
-  scope :with_last_immunization_on, lambda { |reference_time|
+  scope :with_last_immunization_on, lambda { |reference_year|
     where(
-      'Exists (SELECT 1 from immunizations i where i.patient_id = immunization_tasks.patient_id and i.display_date > ? )', reference_time)
+      'Exists (SELECT 1 from immunizations i where i.patient_id = immunization_tasks.patient_id and extract(year from i.display_date) >= ?  )', reference_year)
   }
 
   # Immunization type selection
