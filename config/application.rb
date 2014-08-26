@@ -28,5 +28,8 @@ module Additiveanalytics
       reverse_proxy_options preserve_host: true
       reverse_proxy((/^\/blog(\/.*)$/), 'http://blog.additiveanalytics.com/blog$1')
     end
+
+    # Don't want rails-api to break our application
+    config.api_only = false
   end
 end

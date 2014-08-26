@@ -49,6 +49,8 @@ Additiveanalytics::Application.routes.draw do
     get :reset_filterrific, on: :collection
   end
 
+  get '/api/schedule_app_api' => 'schedule_app_api#index'
+
   # Blog (goes to wordpress blog on other server)
   get '/blog' => redirect('/blog/')
 

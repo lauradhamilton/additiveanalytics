@@ -6,6 +6,9 @@ gem 'pg'
 gem 'less-rails-bootstrap'
 gem 'therubyracer' #LESS needs this
 
+# RESTful API for the schedule_app
+gem 'rails-api'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 
