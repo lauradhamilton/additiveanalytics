@@ -37,3 +37,19 @@ end
 every 1.day do
   runner 'Provider.import_providers'
 end
+
+every 1.day do
+  runner 'Patient.import_all_patients'
+end
+
+every 1.day do
+  runner 'Immunization.import_immunizations'
+end
+
+every 1.day do
+  runner 'ImmunizationTask.import_immunization_tasks'
+end
+
+every 1.hour do
+  runner 'PatientAppointment.import_patient_appointments'
+end
