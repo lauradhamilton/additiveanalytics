@@ -1,6 +1,7 @@
 class ScheduleAppApiController < ActionController::API
   def index
-    today_appointments = PatientAppointment.where("appointment_time >= ?", Date.today).where("appointment_time <= ?", Date.tomorrow)
-    render json: today_appointments
+    appointment_date = Date.strptime(params[:appointment_date], '%Y%m%d')
+    appointment_list = PatientAppointment.where("appointment_time >= ?", appointment_date).where("appointment_time <= ?", appointment_date)
+    render json: appointment_list
   end
 end
