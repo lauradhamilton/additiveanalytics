@@ -150,4 +150,26 @@ class AllscriptsIntegration
     response = http.request(request)
     response.body
   end
+
+  # Start of the Practice Management API
+  def self.get_appointments_by_change_dttm(user_id, start_date)
+    uri = URI.parse(@@unity_service_url + '/MagicJson')
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.path, 'Content-Type' => 'application/json')
+    request.body = {'Action' => 'GetAppointmentsByChangeDTTM',
+                    'Appname' => @@appname,
+                    'AppUserID' => user_id,
+                    'PatientID' => '',
+                    'Token' => AllscriptsIntegration.get_security_token,
+                    'Parameter1' => start_date,
+                    'Parameter2' => '',
+                    'Parameter3' => '',
+                    'Parameter4' => '',
+                    'Parameter5' => '',
+                    'Parameter6' => '',
+                    'Data' => '' }.to_json
+    response = http.request(request)
+    puts response.code
+    response.body
+  end
 end
