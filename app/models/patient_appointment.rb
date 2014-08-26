@@ -10,7 +10,12 @@ class PatientAppointment < ActiveRecord::Base
 
   def self.import_patient_appointments
     appointment = AllscriptsIntegration.get_appointments_by_change_dttm('demo', '1970-01-01')
-    JSON[appointment][0]['getappointmentsbychangedttminfo']
+    appointments_array = JSON[appointment][0]['getappointmentsbychangedttminfo']
+    appointments_array.each do |a|
+      new_appointment = PatientAppointment.new
+      new_appointment.appointment_id = a['Appointment_ID']
+      new_appointment.save
+    end
   end
 end
 
