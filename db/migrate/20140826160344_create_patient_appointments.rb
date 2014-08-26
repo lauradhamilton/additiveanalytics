@@ -17,6 +17,7 @@ class CreatePatientAppointments < ActiveRecord::Migration
       t.integer :appointment_type_id
       t.string :appointment_type_abbreviation
       t.string :appointment_type_description
+      t.string :coverage_type
       t.string :patient_first_name
       t.string :patient_last_name
       t.integer :patient_number
