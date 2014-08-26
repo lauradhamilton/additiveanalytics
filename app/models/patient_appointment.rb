@@ -14,13 +14,13 @@ class PatientAppointment < ActiveRecord::Base
     appointments_array.each do |a|
       new_appointment = PatientAppointment.new
       new_appointment.appointment_id = a['Appointment_ID']
-      new_appointment.appointment_time = a['Appointment_DateTime']
+      new_appointment.appointment_time = DateTime.strptime(a['Appointment_DateTime'], "%m/%d/%Y %I:%M:%S %p").in_time_zone('EST').to_time
       new_appointment.patient_id = a['Patient_ID']
       new_appointment.duration = a['Duration']
       new_appointment.status = a['Status']
       new_appointment.encounter_number = a['Encounter_Number']
-      new_appointment.time_scheduled = a['DateTime_Scheduled']
-      new_appointment.time_confirmed = a['DateTime_Confirmed']
+      new_appointment.time_scheduled = DateTime.strptime(a['DateTime_Scheduled'],  "%m/%d/%Y %I:%M:%S %p").in_time_zone('EST').to_time
+      new_appointment.time_confirmed = DateTime.strptime(a['DateTime_Confirmed'],  "%m/%d/%Y %I:%M:%S %p").in_time_zone('EST').to_time unless a['DateTime_Confirmed'].nil?
       new_appointment.scheduling_location_id = a['Scheduling_Location_ID']
       new_appointment.scheduled_location_abbreviation = a['Appt_Sched_Location_Abbr']
       new_appointment.scheduled_location_description = a['Appt_Sched_Location_Desc']

@@ -2,13 +2,13 @@ class CreatePatientAppointments < ActiveRecord::Migration
   def self.up
     create_table :patient_appointments do |t|
       t.integer :appointment_id
-      t.time :appointment_time
+      t.datetime :appointment_time
       t.integer :patient_id
       t.integer :duration
       t.string :status
       t.integer :encounter_number
-      t.time :time_scheduled
-      t.time :time_confirmed
+      t.datetime :time_scheduled
+      t.datetime :time_confirmed
       t.integer :scheduling_location_id
       t.string :scheduled_location_abbreviation
       t.string :scheduled_location_description
