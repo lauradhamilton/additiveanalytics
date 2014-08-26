@@ -169,7 +169,6 @@ class AllscriptsIntegration
                     'Parameter6' => '',
                     'Data' => '' }.to_json
     response = http.request(request)
-    puts response.code
-    response.body
+    return response.body
   end
 end

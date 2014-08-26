@@ -14,8 +14,8 @@ class PatientAppointment < ActiveRecord::Base
     appointments_array.each do |a|
       new_appointment = PatientAppointment.new
       new_appointment.appointment_id = a['Appointment_ID']
-      new_appointment.appointment_time = a['AppointmentDateTime']
-      new_appointment.patient_id = a['PatientID']
+      new_appointment.appointment_time = a['Appointment_DateTime']
+      new_appointment.patient_id = a['Patient_ID']
       new_appointment.duration = a['Duration']
       new_appointment.status = a['Status']
       new_appointment.encounter_number = a['Encounter_Number']
@@ -27,7 +27,7 @@ class PatientAppointment < ActiveRecord::Base
       new_appointment.scheduling_department_id = a['Scheduling_Department_ID']
       new_appointment.resource_id = a['Resource_ID']
       new_appointment.appointment_type_id = a['Appointment_Type_ID']
-      new_appointment.appointment_type_abbreviation = a['Appointment_Type_Abbr']
+      new_appointment.appointment_type_abbreviation = a['Appt_Type_Abbr']
       new_appointment.appointment_type_description = a['Appt_Type_Abbr']
       new_appointment.coverage_type = a['Coverage_Type']
       new_appointment.patient_first_name = a['Patient_First_Name']
