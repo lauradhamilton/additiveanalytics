@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804164804) do
+ActiveRecord::Schema.define(version: 20140826160344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,32 @@ ActiveRecord::Schema.define(version: 20140804164804) do
     t.decimal "nationwide_average"
   end
 
+  create_table "patient_appointments", force: true do |t|
+    t.integer "appointment_id"
+    t.time    "appointment_time"
+    t.integer "patient_id"
+    t.integer "duration"
+    t.string  "status"
+    t.integer "encounter_number"
+    t.time    "time_scheduled"
+    t.time    "time_confirmed"
+    t.integer "scheduling_location_id"
+    t.string  "scheduled_location_abbreviation"
+    t.string  "scheduled_location_description"
+    t.integer "scheduling_department_id"
+    t.integer "resource_id"
+    t.integer "appointment_type_id"
+    t.string  "appointment_type_abbreviation"
+    t.string  "appointment_type_description"
+    t.string  "patient_first_name"
+    t.string  "patient_last_name"
+    t.integer "patient_number"
+    t.string  "attending_first_name"
+    t.string  "attending_last_name"
+    t.string  "attending_suffix"
+    t.string  "attending_abbreviation"
+  end
+
   create_table "patients", force: true do |t|
     t.string  "age"
     t.string  "gender"
@@ -140,6 +166,11 @@ ActiveRecord::Schema.define(version: 20140804164804) do
   end
 
   add_index "patients", ["patient_id"], name: "index_patients_on_patient_id", unique: true, using: :btree
+
+  create_table "price_variances_by_state", id: false, force: true do |t|
+    t.string  "state"
+    t.decimal "diff_versus_nationwide_average"
+  end
 
   create_table "price_variances_by_states", id: false, force: true do |t|
     t.integer "id",                             null: false
