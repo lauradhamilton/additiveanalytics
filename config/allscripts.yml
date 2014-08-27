@@ -16,8 +16,13 @@ test:
   appname: 'AdditiveAnalytics.TestApp'
 
 production:
-  username: 'AdditiveAnalytics'
-  password: 'AdditiveAnalytics123!!'
-  unity_service_url: "http://pro13ga.unitysandbox.com/Unity/unityservice.svc/json"
-  appname: 'AdditiveAnalytics.TestApp'
+  #username: 'AdditiveAnalytics'
+  #password: 'AdditiveAnalytics123!!'
+  #unity_service_url: "http://pro13ga.unitysandbox.com/Unity/unityservice.svc/json"
+  #appname: 'AdditiveAnalytics.TestApp'
+  username: 'UnityTestUser'
+  password: 'UnityTestPassword'
+  userid: 'Demo'
+  appname: 'UnityTest'
+  unity_service_url: 'http://aws-eehr-11.4.1.unitysandbox.com/UnityPM/unityservice.svc/json'
 
