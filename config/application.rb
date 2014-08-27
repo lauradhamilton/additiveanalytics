@@ -29,6 +29,14 @@ module Additiveanalytics
       reverse_proxy((/^\/blog(\/.*)$/), 'http://blog.additiveanalytics.com/blog$1')
     end
 
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        # location of your API
+        resource '/api/schedule_app_api', :headers => :any, :methods => [:get, :post, :options, :put]
+        end
+    end
+
     # Don't want rails-api to break our application
     config.api_only = false
   end
