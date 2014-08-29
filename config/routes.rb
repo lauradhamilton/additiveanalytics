@@ -50,6 +50,7 @@ Additiveanalytics::Application.routes.draw do
   end
 
   get '/api/schedule_app_api' => 'schedule_app_api#index'
+  post '/api/sessions' => 'api_sessions#create'
 
   # Blog (goes to wordpress blog on other server)
   get '/blog' => redirect('/blog/')

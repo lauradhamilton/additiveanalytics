@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+
+  # Want to be able to login via API
+  # Need this for the smartphone apps to work
+  acts_as_token_authenticatable
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
