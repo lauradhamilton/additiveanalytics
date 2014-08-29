@@ -1,4 +1,7 @@
 class ApiSessionsController < Devise::SessionsController
+
+  protect_from_forgery with: :null_session
+
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
@@ -8,8 +11,8 @@ class ApiSessionsController < Devise::SessionsController
 
   def create
     # Fetch params
-    email = params[:session][:email] if params[:session]
-    password = params[:session][:password] if params[:session]
+    email = params[:email]
+    password = params[:password]
 
     id = User.find_by(email: email).try(:id) if email.presence
 
