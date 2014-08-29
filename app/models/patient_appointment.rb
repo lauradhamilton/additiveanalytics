@@ -27,16 +27,16 @@ class PatientAppointment < ActiveRecord::Base
       new_appointment.scheduling_department_id = a['Scheduling_Department_ID']
       new_appointment.resource_id = a['Resource_ID']
       new_appointment.appointment_type_id = a['Appointment_Type_ID']
-      new_appointment.appointment_type_abbreviation = a['Appt_Type_Abbr']
-      new_appointment.appointment_type_description = a['Appt_Type_Abbr']
-      new_appointment.coverage_type = a['Coverage_Type']
-      new_appointment.patient_first_name = a['Patient_First_Name']
-      new_appointment.patient_last_name = a['Patient_Last_Name']
-      new_appointment.patient_number = a['Patient_Number']
-      new_appointment.attending_first_name = a['AttendingFirstName']
-      new_appointment.attending_last_name = a['AttendingLastName']
-      new_appointment.attending_suffix = a['AttendingSuffix']
-      new_appointment.attending_abbreviation = a['AttendingAbbreviation']
+      new_appointment.appointment_type_abbreviation = a['Appt_Type_Abbr'].try :strip
+      new_appointment.appointment_type_description = a['Appt_Type_Abbr'].try :strip
+      new_appointment.coverage_type = a['Coverage_Type'].try :strip
+      new_appointment.patient_first_name = a['Patient_First_Name'].try :strip
+      new_appointment.patient_last_name = a['Patient_Last_Name'].try :strip
+      new_appointment.patient_number = a['Patient_Number'].try :strip
+      new_appointment.attending_first_name = a['AttendingFirstName'].try :strip
+      new_appointment.attending_last_name = a['AttendingLastName'].try :strip
+      new_appointment.attending_suffix = a['AttendingSuffix'].try :strip
+      new_appointment.attending_abbreviation = a['AttendingAbbreviation'].try :strip
       new_appointment.save
     end
   end
