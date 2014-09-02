@@ -30,7 +30,7 @@ module Additiveanalytics
     end
 
     require 'rack/cors'
-    config.middleware.use Rack::Cors do
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
         origins '*'
         # location of your API
