@@ -1,9 +1,12 @@
 class ApiSessionsController < Devise::SessionsController
 
-  protect_from_forgery with: :null_session
+  after_action :set_access_control_headers
 
-  skip_before_filter :verify_authenticity_token,
-                     :if => Proc.new { |c| c.request.format == 'application/json' }
+  def set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = "*"
+  end
+
+  skip_before_filter :verify_authenticity_token
 
   # This controller provides a JSON version of the Devise::SessionsController and
   # is compatible with the use of SimpleTokenAuthentication.
