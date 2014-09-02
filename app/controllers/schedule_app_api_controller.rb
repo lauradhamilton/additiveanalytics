@@ -1,14 +1,14 @@
-require 'simple_token_authentication'
+class ScheduleAppApiController < ActionController::Base
 
-class ScheduleAppApiController < ActionController::API
+  acts_as_token_authentication_handler_for User, fallback_to_devise: false
+
+  before_action :authenticate_user_from_token!
 
   after_action :set_access_control_headers
 
   def set_access_control_headers
     headers['Access-Control-Allow-Origin'] = "*"
   end
-
-  skip_before_filter :verify_authenticity_token
 
   def index
     appointment_date = Date.strptime(params[:appointment_date], '%Y%m%d')
