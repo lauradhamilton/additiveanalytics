@@ -145,9 +145,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.4)
       sprockets-rails (~> 2.0)
-    rails-api (0.2.1)
-      actionpack (>= 3.2.11)
-      railties (>= 3.2.11)
     railties (4.1.4)
       actionpack (= 4.1.4)
       activesupport (= 4.1.4)
@@ -241,7 +238,6 @@ DEPENDENCIES
   rack-proxy!
   rack-reverse-proxy!
   rails
-  rails-api
   rubocop
   sass-rails
   sdoc
