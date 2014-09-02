@@ -63,6 +63,7 @@ gem 'whenever', :require => false
 
 # Authentication & login
 gem 'devise'
+gem 'simple_token_authentication' #Need to be able to login via API from phone app
 
 # Reject weak passwords
 gem 'devise_zxcvbn'
