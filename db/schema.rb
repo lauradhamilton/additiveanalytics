@@ -168,11 +168,6 @@ ActiveRecord::Schema.define(version: 20140826160344) do
 
   add_index "patients", ["patient_id"], name: "index_patients_on_patient_id", unique: true, using: :btree
 
-  create_table "price_variances_by_state", id: false, force: true do |t|
-    t.string  "state"
-    t.decimal "diff_versus_nationwide_average"
-  end
-
   create_table "price_variances_by_states", id: false, force: true do |t|
     t.integer "id",                             null: false
     t.string  "state"
