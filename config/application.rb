@@ -29,6 +29,7 @@ module Additiveanalytics
       reverse_proxy((/^\/blog(\/.*)$/), 'http://blog.additiveanalytics.com/blog$1')
     end
 
+    require 'rack/cors'
     config.middleware.use Rack::Cors do
       allow do
         origins '*'
