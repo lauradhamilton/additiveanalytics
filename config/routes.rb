@@ -54,6 +54,7 @@ Additiveanalytics::Application.routes.draw do
   devise_scope :user do
     get '/api_sessions' => 'api_sessions#create'
     post '/api_sessions' => 'api_sessions#create'
+    get '/api/schedule_app_api' => 'schedule_app_api#index'
     post '/api/schedule_app_api' => 'schedule_app_api#index'
   end
 
