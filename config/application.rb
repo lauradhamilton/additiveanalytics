@@ -34,7 +34,7 @@ module Additiveanalytics
         origins '*'
         # location of your API
         resource '/api_sessions', :headers => :any, :methods => [:get, :post, :options, :put]
-        resource '/api/schedule_app_api', :headers => :any, :methods => [:get, :post, :options, :put]
+        resource '/api/*', :headers => :any, :methods => [:get, :post, :options, :put]
         end
     end
 
