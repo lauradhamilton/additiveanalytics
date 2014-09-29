@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829192104) do
+ActiveRecord::Schema.define(version: 20140929160030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "audit_logs", force: true do |t|
+    t.integer  "user_id"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "audit_logs", ["user_id"], name: "index_audit_logs_on_user_id", using: :btree
 
   create_table "immunization_task_statuses", force: true do |t|
     t.integer  "immunization_task_id"
@@ -167,6 +176,11 @@ ActiveRecord::Schema.define(version: 20140829192104) do
   end
 
   add_index "patients", ["patient_id"], name: "index_patients_on_patient_id", unique: true, using: :btree
+
+  create_table "price_variances_by_state", id: false, force: true do |t|
+    t.string  "state"
+    t.decimal "diff_versus_nationwide_average"
+  end
 
   create_table "price_variances_by_states", id: false, force: true do |t|
     t.integer "id",                             null: false

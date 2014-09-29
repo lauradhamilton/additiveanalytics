@@ -15,5 +15,7 @@ class ScheduleAppApiController < ActionController::Base
     attending_abbreviation = params[:attending_abbreviation]
     appointment_list = PatientAppointment.where("appointment_time >= ?", appointment_date).where("appointment_time <= ?", appointment_date).where("attending_abbreviation = ?", attending_abbreviation)
     render json: appointment_list
+    AuditLog.record_schedule_app_audit(current_user.id) # Make a record that the API was called
+    # This is needed for HIPAA
   end
 end
